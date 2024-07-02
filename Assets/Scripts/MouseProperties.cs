@@ -1,26 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MouseProperties : MonoBehaviour
 {
-    private MouseProperties _instance;
-    public MouseProperties Instance
+    public static MouseProperties Instance;
+
+    public Vector2 mousePosition = Vector2.zero;
+    
+    [SerializeField]
+    private Camera mainCamera;
+
+    private void Awake()
     {
-        get
+        if (Instance == null)
         {
-            if (_instance == null)
-            {
-                _instance = this;
-            }
-            return _instance;
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
         }
     }
-    
-    public Vector2 GetMousePosition()
+
+
+    private void Update()
     {
-        Vector2 mousePos = Vector2.zero;
-        //mouse pos
-        return mousePos;
+        mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
     }
 }
