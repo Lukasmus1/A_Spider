@@ -6,28 +6,27 @@ using UnityEngine;
 
 public class MouseProperties : MonoBehaviour
 {
-    public static MouseProperties Instance;
-
-    public Vector2 mousePosition = Vector2.zero;
-    
     [SerializeField]
     private Camera mainCamera;
+    
+    public Vector2 mousePosition = Vector2.zero;
+    
+    //Mouse click event
+    public delegate void MouseClicked();
+    public event MouseClicked OnMouseClicked;
 
-    private void Awake()
+    private void OnDestroy()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
+        OnMouseClicked = null;
     }
-
 
     private void Update()
     {
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetMouseButtonDown(0))
+        {
+            //ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+            OnMouseClicked?.Invoke();
+        }
     }
 }
