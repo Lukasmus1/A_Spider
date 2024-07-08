@@ -1,17 +1,15 @@
-using System;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject player;
+    [SerializeField] private GameObject player;
     
-    [SerializeField]
-    private float timeToLive = 1f;
+    [SerializeField] private float timeToLive = 1f;
     private float _timeAlive;
     
-    [SerializeField]
-    private float speed = 10f;
+    [SerializeField] private float speed = 10f;
+
+    [SerializeField] private Sprite downedFlySprite;
     
     private Vector3 _direction;
     
@@ -19,6 +17,7 @@ public class BulletScript : MonoBehaviour
     {
         _direction = player.transform.up;
         _timeAlive = 0f;
+        _hit = false;
     }
 
     private void OnDisable()
@@ -40,12 +39,29 @@ public class BulletScript : MonoBehaviour
         }
     }
 
+    private bool _hit;
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.SetActive(false);
+            //This is here to prevent the bullet from hitting multiple enemies at once
+            //The bullet will slightly move a second after hitting an enemy in some rare cases, but it's not a big deal
+            if (_hit)
+            {
+                return;
+            }
+            
+            _hit = true;
             gameObject.SetActive(false);
+            
+            //I decided to go with the destroy/instantiate method instead of pooling
+            EnemyScript enemyScript = other.gameObject.GetComponent<EnemyScript>();
+            if (!enemyScript.isDead)
+            {
+                print("Enemy was hit");
+                other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = downedFlySprite;
+                enemyScript.isDead = true;
+            }
         }
     }
 }

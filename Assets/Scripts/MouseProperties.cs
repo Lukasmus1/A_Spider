@@ -6,11 +6,9 @@ using UnityEngine;
 
 public class MouseProperties : MonoBehaviour
 {
-    [SerializeField]
-    private Camera mainCamera;
+    [SerializeField] private Camera mainCamera;
     
-    [HideInInspector]
-    public Vector2 mousePosition = Vector2.zero;
+    [HideInInspector] public Vector2 mousePosition = Vector2.zero;
     
     //Mouse click event
     public delegate void MouseClicked();

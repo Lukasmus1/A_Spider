@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject levelManager;
+    [SerializeField] private GameObject levelManager;
 
-    [SerializeField] 
-    private GameObject[] bullets;
+    [SerializeField] private GameObject[] bullets;
     private static int _currentBulletIndex = 0;
     
     private const float Cooldown = 0.5f;
