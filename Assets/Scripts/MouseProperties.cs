@@ -9,6 +9,7 @@ public class MouseProperties : MonoBehaviour
     [SerializeField]
     private Camera mainCamera;
     
+    [HideInInspector]
     public Vector2 mousePosition = Vector2.zero;
     
     //Mouse click event

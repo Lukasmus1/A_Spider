@@ -39,4 +39,13 @@ public class BulletScript : MonoBehaviour
             _timeAlive += Time.deltaTime;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            other.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }
+    }
 }
