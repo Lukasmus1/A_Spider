@@ -60,7 +60,7 @@ public class BulletScript : MonoBehaviour
             {
                 print("Enemy was hit");
                 other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = downedFlySprite;
-                enemyScript.isDead = true;
+                enemyScript.RaiseEnemyShot();
             }
         }
     }

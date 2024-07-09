@@ -25,6 +25,7 @@ public class MouseProperties : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+            //Disabled because you need to click to call this
             OnMouseClicked?.Invoke();
         }
     }
