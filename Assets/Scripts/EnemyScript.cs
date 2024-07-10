@@ -8,9 +8,12 @@ public class EnemyScript : MonoBehaviour
     public delegate void EnemyShot();
     public event EnemyShot OnEnemyShot;
 
+    private EnemyStats _enemyStats;
+    
     private void Awake()
     {
         OnEnemyShot += Shot;
+        _enemyStats = GetComponent<BasicEnemyStats>();
     }
 
     //Remove the event when the object is destroyed
@@ -36,12 +39,17 @@ public class EnemyScript : MonoBehaviour
         {
             if (isDead)
             {
-                //Add points to player or smth
+                //Destroying the enemy will raise the OnDestroy method in BasicEnemyPrefs.cs
                 Destroy(gameObject);
             }
             else
             {
-                print("Player was hit");
+                if (!PlayerStats.Instance.IsInvincible)
+                {
+                    PlayerStats.Instance.Health -= _enemyStats.EnemyDamage;
+                    print(PlayerStats.Instance.Health);
+                    PlayerStats.Instance.IsInvincible = true;
+                }
             }
         }
     }

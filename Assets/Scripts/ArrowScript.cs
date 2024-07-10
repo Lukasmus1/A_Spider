@@ -40,13 +40,15 @@ public class ArrowScript : MonoBehaviour
             
             Vector2 dir = target.transform.position - transform.parent.position;
             float distance = dir.magnitude;
+
+            const float offset = 0.5f;
             
             //If a person is close enough, the arrow will not be visible
-            _spriteRenderer.enabled = !(distance < 1.5f);
+            _spriteRenderer.enabled = !(distance < 1.5f + offset);
             
             //Square root of distance to limit the arrow's max distance
             dir.Normalize();
-            transform.position = (Vector3)dir * Mathf.Sqrt(distance) + transform.parent.position;
+            transform.position = (Vector3)dir * (Mathf.Sqrt(distance) - offset)+ transform.parent.position;
         }
     }
 }
