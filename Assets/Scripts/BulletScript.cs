@@ -58,8 +58,6 @@ public class BulletScript : MonoBehaviour
             EnemyScript enemyScript = other.gameObject.GetComponent<EnemyScript>();
             if (!enemyScript.isDead)
             {
-                print("Enemy was hit");
-                other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = downedFlySprite;
                 enemyScript.RaiseEnemyShot();
             }
         }

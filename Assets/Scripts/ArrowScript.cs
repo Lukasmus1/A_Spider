@@ -25,7 +25,10 @@ public class ArrowScript : MonoBehaviour
     
     private void ChangeArrowSprite()
     {
-        _spriteRenderer.sprite = downedArrowSprite;
+        if (_enemyScript.isDead)
+        { 
+            _spriteRenderer.sprite = downedArrowSprite;
+        }
     }
 
     private void LateUpdate()

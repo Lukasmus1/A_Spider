@@ -20,6 +20,8 @@ public class PlayerStats : MonoBehaviour
     public int Points { get; set; } = 0;
 
     public int Health { get; set; } = 100;
+    
+    public int Damage { get; set; } = 10;
 
     public float InvincibilityTime { get; } = 0.5f;
 

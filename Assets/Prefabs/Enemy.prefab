@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
+  downedFlySprite: {fileID: 21300000, guid: 23109c23e57f1234eb80a8d2b8a13f9b, type: 3}
 --- !u!114 &731573106324929497
 MonoBehaviour:
   m_ObjectHideFlags: 0

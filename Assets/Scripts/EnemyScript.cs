@@ -3,6 +3,8 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     [HideInInspector] public bool isDead = false;
+    
+    [SerializeField] private Sprite downedFlySprite;
 
     //An event that will be raised when the enemy is shot in BulletScript.cs
     public delegate void EnemyShot();
@@ -30,7 +32,11 @@ public class EnemyScript : MonoBehaviour
     
     private void Shot()
     {
-        isDead = true;
+        _enemyStats.EnemyHealth -= PlayerStats.Instance.Damage;
+        if (isDead)
+        {
+            GetComponentInChildren<SpriteRenderer>().sprite = downedFlySprite;
+        }
     }
     
     private void OnCollisionStay2D(Collision2D other)
