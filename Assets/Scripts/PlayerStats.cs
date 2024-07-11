@@ -11,16 +11,28 @@ public class PlayerStats : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else
-        {
-            Instance = this;
-        }
+        Instance = this;
     }
 
     public int Points { get; set; } = 0;
 
-    public int Health { get; set; } = 100;
-    
+    private int _health = 100;
+    public int Health
+    {
+        get => _health;
+
+        set
+        {
+            _health = value;
+            if (_health <= 0)
+            {
+                //Game over
+                _health = 0;
+            }
+        }
+
+    }
+
     public int Damage { get; set; } = 10;
 
     public float InvincibilityTime { get; } = 0.5f;

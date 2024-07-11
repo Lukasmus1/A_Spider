@@ -45,7 +45,7 @@ public class EnemyScript : MonoBehaviour
         {
             if (isDead)
             {
-                //Destroying the enemy will raise the OnDestroy method in BasicEnemyPrefs.cs
+                //Points or smth
                 Destroy(gameObject);
             }
             else
@@ -53,8 +53,8 @@ public class EnemyScript : MonoBehaviour
                 if (!PlayerStats.Instance.IsInvincible)
                 {
                     PlayerStats.Instance.Health -= _enemyStats.EnemyDamage;
-                    print(PlayerStats.Instance.Health);
                     PlayerStats.Instance.IsInvincible = true;
+                    UiScript.RaiseHealthChange();
                 }
             }
         }
