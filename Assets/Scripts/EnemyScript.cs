@@ -45,7 +45,6 @@ public class EnemyScript : MonoBehaviour
         {
             if (isDead)
             {
-                //Points or smth
                 Destroy(gameObject);
             }
             else
