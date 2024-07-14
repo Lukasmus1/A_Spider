@@ -1,7 +1,6 @@
-using Unity.Mathematics;
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : LevelManager
 {
@@ -13,6 +12,12 @@ public class GameManager : LevelManager
     private float _timeSinceLastSpawn = 0f;
     
     [SerializeField] private GameObject arrowPrefab;
+    
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     
     private void Update()
     {
@@ -31,4 +36,5 @@ public class GameManager : LevelManager
         ArrowScript arrowScript = Instantiate(arrowPrefab, player.transform).GetComponent<ArrowScript>();;
         arrowScript.SetVariables(enemy);
     }
+    
 }

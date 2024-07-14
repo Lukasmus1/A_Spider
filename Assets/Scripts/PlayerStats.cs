@@ -5,6 +5,9 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance { get; private set; }
 
+    public delegate void Death();
+    public event Death OnDeath;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -12,6 +15,11 @@ public class PlayerStats : MonoBehaviour
             Destroy(gameObject);
         }
         Instance = this;
+    }
+
+    private void OnDisable()
+    {
+        OnDeath = null;
     }
 
     public int Points { get; set; } = 0;
@@ -26,8 +34,8 @@ public class PlayerStats : MonoBehaviour
             _health = value;
             if (_health <= 0)
             {
-                //Game over
                 _health = 0;
+                OnDeath?.Invoke();
             }
         }
 

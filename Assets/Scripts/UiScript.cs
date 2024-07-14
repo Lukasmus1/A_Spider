@@ -10,6 +10,8 @@ public class UiScript : MonoBehaviour
     
     [SerializeField] private TMP_Text pointsText;
     
+    [SerializeField] private GameObject gameOverPanel;
+    
     public delegate void HealthChange();
     public static event HealthChange OnHealthChange;
     
@@ -21,6 +23,7 @@ public class UiScript : MonoBehaviour
     {
         OnHealthChange += UpdateHealth;
         OnPointsChange += PointsUpdate;
+        PlayerStats.Instance.OnDeath += ShowGameOverPanel;
         
         //I could call the event instead but this is safer
         UpdateHealth();
@@ -52,5 +55,10 @@ public class UiScript : MonoBehaviour
     public static void RaisePointsChange()
     {
         OnPointsChange?.Invoke();
+    }
+    
+    private void ShowGameOverPanel()
+    {
+        gameOverPanel.SetActive(true);
     }
 }
