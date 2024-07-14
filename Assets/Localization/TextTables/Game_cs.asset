@@ -30,6 +30,14 @@ MonoBehaviour:
     m_Localized: Restartovat
     m_Metadata:
       m_Items: []
+  - m_Id: 409200826187776
+    m_Localized: "Pokra\u010Dovat"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 409267758891008
+    m_Localized: Pauza
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
