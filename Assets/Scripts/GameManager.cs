@@ -14,7 +14,7 @@ public class GameManager : LevelManager
     [SerializeField] private GameObject arrowPrefab;
     
     [SerializeField] private GameObject pauseMenu;
-    
+
     [SerializeField] private GameObject gameOverMenu;
 
 
@@ -50,7 +50,7 @@ public class GameManager : LevelManager
     {
         //This must be random, not new Vector3(5, 0, 0)
         GameObject enemy = Instantiate(enemyPrefab, player.transform.position + new Vector3(5, 0, 0), Quaternion.identity);
-        ArrowScript arrowScript = Instantiate(arrowPrefab, player.transform).GetComponent<ArrowScript>();;
+        ArrowScript arrowScript = Instantiate(arrowPrefab, player.transform).GetComponent<ArrowScript>();
         arrowScript.SetVariables(enemy);
     }
  

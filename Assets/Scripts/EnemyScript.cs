@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -6,16 +7,20 @@ public class EnemyScript : MonoBehaviour
     
     [SerializeField] private Sprite downedFlySprite;
 
+    [SerializeField] private GameObject healthText;
+
     //An event that will be raised when the enemy is shot in BulletScript.cs
     public delegate void EnemyShot();
     public event EnemyShot OnEnemyShot;
 
-    private EnemyStats _enemyStats;
+    public EnemyStats enemyStats;
     
     private void Awake()
     {
         OnEnemyShot += Shot;
-        _enemyStats = GetComponent<BasicEnemyStats>();
+        enemyStats = GetComponent<BasicEnemyStats>();
+        EnemyUIScript enemyUIScript = Instantiate(healthText, transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity).GetComponent<EnemyUIScript>();
+        enemyUIScript.enemyToFollow = gameObject;
     }
 
     //Remove the event when the object is destroyed
@@ -32,7 +37,7 @@ public class EnemyScript : MonoBehaviour
     
     private void Shot()
     {
-        _enemyStats.EnemyHealth -= PlayerStats.Instance.Damage;
+        enemyStats.EnemyHealth -= PlayerStats.Instance.Damage;
         if (isDead)
         {
             GetComponentInChildren<SpriteRenderer>().sprite = downedFlySprite;
@@ -51,7 +56,7 @@ public class EnemyScript : MonoBehaviour
             {
                 if (!PlayerStats.Instance.IsInvincible)
                 {
-                    PlayerStats.Instance.Health -= _enemyStats.EnemyDamage;
+                    PlayerStats.Instance.Health -= enemyStats.EnemyDamage;
                     PlayerStats.Instance.IsInvincible = true;
                     UiScript.RaiseHealthChange();
                 }
