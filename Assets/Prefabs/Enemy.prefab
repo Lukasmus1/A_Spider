@@ -208,6 +208,8 @@ MonoBehaviour:
   isDead: 0
   downedFlySprite: {fileID: 21300000, guid: 23109c23e57f1234eb80a8d2b8a13f9b, type: 3}
   healthText: {fileID: 2407440959867238283, guid: 19f76ff887708f74faa12f340c92d9e4, type: 3}
+  hitTextPrefab: {fileID: 2407440959867238283, guid: 217dc6c73bdd50840b37260a9e79c192, type: 3}
+  enemyStats: {fileID: 0}
 --- !u!114 &731573106324929497
 MonoBehaviour:
   m_ObjectHideFlags: 0

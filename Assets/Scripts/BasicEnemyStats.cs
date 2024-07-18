@@ -1,7 +1,6 @@
 public class BasicEnemyStats : EnemyStats
 {
     private int _enemyHealth = 10;
-
     public override int EnemyHealth
     {
         get => _enemyHealth;
@@ -15,6 +14,7 @@ public class BasicEnemyStats : EnemyStats
             }
         }
     }
+    
     public override int EnemyPoints { get; set; } = 10;
     public override int EnemyDamage { get; set; } = 10;
 }

@@ -12,11 +12,11 @@ public class UiScript : MonoBehaviour
     
     [SerializeField] private GameObject gameOverPanel;
     
-    public delegate void HealthChange();
-    public static event HealthChange OnHealthChange;
+    private delegate void HealthChange();
+    private static event HealthChange OnHealthChange;
     
-    public delegate void PointsChange();
-    public static event PointsChange OnPointsChange;
+    private delegate void PointsChange();
+    private static event PointsChange OnPointsChange;
     
     //Start because PlayerStats.Instance is not yet set in Awake
     private void Start()

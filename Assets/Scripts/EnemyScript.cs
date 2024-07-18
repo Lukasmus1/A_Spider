@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
@@ -7,19 +8,21 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private Sprite downedFlySprite;
 
     [SerializeField] private GameObject healthText;
+    
+    [SerializeField] private GameObject hitTextPrefab;
 
     //An event that will be raised when the enemy is shot in BulletScript.cs
-    public delegate void EnemyShot();
-    public event EnemyShot OnEnemyShot;
+    public delegate void EnemyShotDelegate();
+    public event EnemyShotDelegate OnEnemyShot;
 
-    public EnemyStats enemyStats;
+    [HideInInspector] public EnemyStats enemyStats;
     
     private void Awake()
     {
-        OnEnemyShot += Shot;
+        OnEnemyShot += EnemyShot;
         enemyStats = GetComponent<BasicEnemyStats>();
         EnemyUIScript enemyUIScript = Instantiate(healthText, transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity).GetComponent<EnemyUIScript>();
-        enemyUIScript.StartScript(gameObject);
+        enemyUIScript.StartScript(gameObject, this);
     }
 
     //Remove the event when the object is destroyed
@@ -34,7 +37,7 @@ public class EnemyScript : MonoBehaviour
         OnEnemyShot?.Invoke();
     }
     
-    private void Shot()
+    private void EnemyShot()
     {
         enemyStats.EnemyHealth -= PlayerStats.Instance.Damage;
         if (isDead)
@@ -57,9 +60,16 @@ public class EnemyScript : MonoBehaviour
                 {
                     PlayerStats.Instance.Health -= enemyStats.EnemyDamage;
                     PlayerStats.Instance.IsInvincible = true;
+                    CreateHitText(other.transform.position);
                     UiScript.RaiseHealthChange();
                 }
             }
         }
+    }
+    
+    private void CreateHitText(Vector3 pos)
+    {
+        GameObject hitText = Instantiate(hitTextPrefab, pos, Quaternion.identity);
+        hitText.GetComponent<TextMeshPro>().text = PlayerStats.Instance.Damage.ToString();
     }
 }

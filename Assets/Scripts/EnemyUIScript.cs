@@ -10,11 +10,11 @@ public class EnemyUIScript : MonoBehaviour
     private EnemyScript _enemyScript;
     private TextMeshPro _tmp;
 
-    public void StartScript(GameObject enemy)
+    public void StartScript(GameObject enemy, EnemyScript script)
     {
         enemyToFollow = enemy;
         _tmp = GetComponent<TextMeshPro>();
-        _enemyScript = enemyToFollow.GetComponent<EnemyScript>();
+        _enemyScript = script;
         _enemyScript.OnEnemyShot += UpdateText;
         UpdateText();
     }
