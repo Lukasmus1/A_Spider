@@ -137,3 +137,4 @@ MonoBehaviour:
   timeToLive: 1
   speed: 10
   downedFlySprite: {fileID: 21300000, guid: 23109c23e57f1234eb80a8d2b8a13f9b, type: 3}
+  hitTextPrefab: {fileID: 2407440959867238283, guid: 217dc6c73bdd50840b37260a9e79c192, type: 3}

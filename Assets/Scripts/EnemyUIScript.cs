@@ -10,8 +10,9 @@ public class EnemyUIScript : MonoBehaviour
     private EnemyScript _enemyScript;
     private TextMeshPro _tmp;
 
-    private void Start()
+    public void StartScript(GameObject enemy)
     {
+        enemyToFollow = enemy;
         _tmp = GetComponent<TextMeshPro>();
         _enemyScript = enemyToFollow.GetComponent<EnemyScript>();
         _enemyScript.OnEnemyShot += UpdateText;
@@ -24,16 +25,12 @@ public class EnemyUIScript : MonoBehaviour
         {
             transform.position = enemyToFollow.transform.position + new Vector3(0, 1f, 0);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void UpdateText()
     {
         _tmp.text = _enemyScript.enemyStats.EnemyHealth.ToString();
-        if (_tmp.text == "0")
+        if (_enemyScript.isDead)
         {
             Destroy(gameObject);
         }

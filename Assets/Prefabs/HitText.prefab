@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7555875697507533070}
   - component: {fileID: 6932777148716280162}
   - component: {fileID: -4937936732306398169}
+  - component: {fileID: -6612906213565019125}
   m_Layer: 0
-  m_Name: HealthText
+  m_Name: HitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +111,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0.6037736, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -133,7 +134,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -185,3 +186,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyToFollow: {fileID: 0}
+--- !u!114 &-6612906213565019125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2407440959867238283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2d1350ace5fd44587a97634508e225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

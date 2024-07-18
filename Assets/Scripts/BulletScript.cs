@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
@@ -10,6 +11,8 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private float speed = 10f;
 
     [SerializeField] private Sprite downedFlySprite;
+    
+    [SerializeField] private GameObject hitTextPrefab;
     
     private Vector3 _direction;
     
@@ -59,7 +62,14 @@ public class BulletScript : MonoBehaviour
             if (!enemyScript.isDead)
             {
                 enemyScript.RaiseEnemyShot();
+                CreateHitText(other.transform.position);
             }
         }
+    }
+    
+    private void CreateHitText(Vector3 pos)
+    {
+        GameObject hitText = Instantiate(hitTextPrefab, pos, Quaternion.identity);
+        hitText.GetComponent<TextMeshPro>().text = PlayerStats.Instance.Damage.ToString();
     }
 }

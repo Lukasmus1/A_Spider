@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class EnemyScript : MonoBehaviour
         OnEnemyShot += Shot;
         enemyStats = GetComponent<BasicEnemyStats>();
         EnemyUIScript enemyUIScript = Instantiate(healthText, transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity).GetComponent<EnemyUIScript>();
-        enemyUIScript.enemyToFollow = gameObject;
+        enemyUIScript.StartScript(gameObject);
     }
 
     //Remove the event when the object is destroyed
