@@ -62,14 +62,9 @@ public class BulletScript : MonoBehaviour
             if (!enemyScript.isDead)
             {
                 enemyScript.RaiseEnemyShot();
-                CreateHitText(other.transform.position);
+                Utilities.Instance.CreateHitText(other.transform.position, PlayerStats.Instance.Damage.ToString(), Color.red);
             }
         }
     }
     
-    private void CreateHitText(Vector3 pos)
-    {
-        GameObject hitText = Instantiate(hitTextPrefab, pos, Quaternion.identity);
-        hitText.GetComponent<TextMeshPro>().text = PlayerStats.Instance.Damage.ToString();
-    }
 }

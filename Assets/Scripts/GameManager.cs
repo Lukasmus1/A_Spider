@@ -78,5 +78,4 @@ public class GameManager : LevelManager
             pauseMenu.SetActive(true);
         }
     }
-    
 }

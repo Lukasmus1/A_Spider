@@ -14,12 +14,16 @@ public class EnemyScript : MonoBehaviour
     //An event that will be raised when the enemy is shot in BulletScript.cs
     public delegate void EnemyShotDelegate();
     public event EnemyShotDelegate OnEnemyShot;
+    
+    public delegate void PlayerHitDelegate();
+    public event PlayerHitDelegate OnPlayerHit;
 
     [HideInInspector] public EnemyStats enemyStats;
     
     private void Awake()
     {
         OnEnemyShot += EnemyShot;
+        OnPlayerHit += PlayerHit;
         enemyStats = GetComponent<BasicEnemyStats>();
         EnemyUIScript enemyUIScript = Instantiate(healthText, transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity).GetComponent<EnemyUIScript>();
         enemyUIScript.StartScript(gameObject, this);
@@ -52,24 +56,24 @@ public class EnemyScript : MonoBehaviour
         {
             if (isDead)
             {
+                Utilities.Instance.CreateHitText(other.transform.position, "+" + enemyStats.EnemyPoints, Color.yellow);
                 Destroy(gameObject);
             }
             else
             {
                 if (!PlayerStats.Instance.IsInvincible)
                 {
-                    PlayerStats.Instance.Health -= enemyStats.EnemyDamage;
-                    PlayerStats.Instance.IsInvincible = true;
-                    CreateHitText(other.transform.position);
-                    UiScript.RaiseHealthChange();
+                    OnPlayerHit?.Invoke();
+                    Utilities.Instance.CreateHitText(other.transform.position, enemyStats.EnemyDamage.ToString(), Color.red);
                 }
             }
         }
     }
-    
-    private void CreateHitText(Vector3 pos)
+
+    private void PlayerHit()
     {
-        GameObject hitText = Instantiate(hitTextPrefab, pos, Quaternion.identity);
-        hitText.GetComponent<TextMeshPro>().text = PlayerStats.Instance.Damage.ToString();
+        PlayerStats.Instance.Health -= enemyStats.EnemyDamage;
+        PlayerStats.Instance.IsInvincible = true;
+        UiScript.RaiseHealthChange();
     }
 }

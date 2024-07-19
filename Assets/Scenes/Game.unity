@@ -11122,6 +11122,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8108576441666582659, guid: ef39dfe289634cd45a0a2c8d116a3d99, type: 3}
       insertIndex: -1
       addedObject: {fileID: 654723098}
+    - targetCorrespondingSourceObject: {fileID: 8108576441666582659, guid: ef39dfe289634cd45a0a2c8d116a3d99, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 654723100}
   m_SourcePrefab: {fileID: 100100000, guid: ef39dfe289634cd45a0a2c8d116a3d99, type: 3}
 --- !u!1 &654723094 stripped
 GameObject:
@@ -11160,6 +11163,19 @@ MonoBehaviour:
   arrowPrefab: {fileID: 5829730306650233514, guid: cd31d6acc6569c848877a68855903fa0, type: 3}
   pauseMenu: {fileID: 1497050226}
   gameOverMenu: {fileID: 762275482}
+--- !u!114 &654723100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654723094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc530629ea16576468dcb19d11abbe9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitTextPrefab: {fileID: 2407440959867238283, guid: 217dc6c73bdd50840b37260a9e79c192, type: 3}
 --- !u!1001 &668205557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11426,7 +11442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thingToFollow: {fileID: 1962183876}
   zOffset: {x: 0, y: 0, z: -10}
-  _mouseProperties: {fileID: 654723095}
+  mouseProperties: {fileID: 0}
 --- !u!1001 &839186749
 PrefabInstance:
   m_ObjectHideFlags: 0

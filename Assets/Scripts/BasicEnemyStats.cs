@@ -15,6 +15,6 @@ public class BasicEnemyStats : EnemyStats
         }
     }
     
-    public override int EnemyPoints { get; set; } = 10;
-    public override int EnemyDamage { get; set; } = 10;
+    public override int EnemyPoints { get; set; } = 5;
+    public override int EnemyDamage { get; set; } = 5;
 }

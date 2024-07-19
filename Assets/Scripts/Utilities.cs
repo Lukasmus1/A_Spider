@@ -1,18 +1,19 @@
+using TMPro;
 using UnityEngine;
 
-public class Utilities
+public class Utilities : MonoBehaviour
 {
-    private static Utilities _instance;
-    public static Utilities Instance
+    [SerializeField] private GameObject hitTextPrefab;
+    
+    public static Utilities Instance { get; private set; }
+    
+    private void Awake()
     {
-        get
+        if (Instance != null && Instance != this)
         {
-            if (_instance == null)
-            {
-                _instance = new Utilities();
-            }
-            return _instance;
+            Destroy(gameObject);
         }
+        Instance = this;
     }
     
     public void RotateObjectToFaceAnother(Transform objectToRotate, Vector2 targetPosition)
@@ -24,5 +25,12 @@ public class Utilities
         Vector2 mouseDir = targetPosition - (Vector2)objectToRotate.position;
         float angle = Mathf.Atan2(mouseDir.y, mouseDir.x) * Mathf.Rad2Deg;
         objectToRotate.rotation = Quaternion.Euler(0, 0, angle - 90);
+    }
+    
+    public void CreateHitText(Vector3 position, string text, Color color)
+    {
+        GameObject hitText = Instantiate(hitTextPrefab, position, Quaternion.identity);
+        hitText.GetComponent<TextMeshPro>().text = text;
+        hitText.GetComponent<TextMeshPro>().color = color;
     }
 }
