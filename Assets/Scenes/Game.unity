@@ -11442,7 +11442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thingToFollow: {fileID: 1962183876}
   zOffset: {x: 0, y: 0, z: -10}
-  mouseProperties: {fileID: 0}
+  mouseProperties: {fileID: 654723095}
 --- !u!1001 &839186749
 PrefabInstance:
   m_ObjectHideFlags: 0
