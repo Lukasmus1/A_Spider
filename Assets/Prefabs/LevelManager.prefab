@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8633011930431637611}
+  - component: {fileID: 3358084337184593640}
   - component: {fileID: -1198544398637469317}
   m_Layer: 0
   m_Name: LevelManager
@@ -32,6 +33,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3358084337184593640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108576441666582659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e76c69e06b3d124faaab5de93e0eebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  enemyPrefab: {fileID: 9210431239748014992, guid: d5086b74c70dd884eb4a3ba6c89909d6, type: 3}
+  spawnCooldown: 100
+  arrowPrefab: {fileID: 5829730306650233514, guid: cd31d6acc6569c848877a68855903fa0, type: 3}
+  pauseMenu: {fileID: 0}
+  gameOverMenu: {fileID: 0}
+  maxY: 16.4
+  minY: -16.5
+  maxX: 23.5
+  minX: -24.5
 --- !u!114 &-1198544398637469317
 MonoBehaviour:
   m_ObjectHideFlags: 0

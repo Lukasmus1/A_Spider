@@ -36,18 +36,18 @@ public class PlayerMovement : MonoBehaviour
         {
             pos.y = _maxY;
         }
-        else if (pos.y < -_minY)
+        else if (pos.y < _minY)
         {
-            pos.y = -_minY;
+            pos.y = _minY;
         }
         
         if (pos.x > _maxX)
         {
             pos.x = _maxX;
         }
-        else if (pos.x < -_minX)
+        else if (pos.x < _minX)
         {
-            pos.x = -_minX;
+            pos.x = _minX;
         }
 
         transform.position = pos;

@@ -44,7 +44,7 @@ public class ArrowScript : MonoBehaviour
             Vector2 dir = target.transform.position - transform.parent.position;
             float distance = dir.magnitude;
 
-            const float offset = 8f;
+            const float offset = 5f;
             
             //If a person is close enough, the arrow will not be visible
             if (distance <= offset + 1f)

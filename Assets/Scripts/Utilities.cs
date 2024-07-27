@@ -33,4 +33,12 @@ public class Utilities : MonoBehaviour
         hitText.GetComponent<TextMeshPro>().text = text;
         hitText.GetComponent<TextMeshPro>().color = color;
     }
+
+    public Vector2 GetRandomVector2(float minX, float maxX, float minY, float maxY)
+    {
+        float x = Random.Range(minX, maxX);
+        float y = Random.Range(minY, maxY);
+        
+        return new Vector2(x, y);
+    }
 }
