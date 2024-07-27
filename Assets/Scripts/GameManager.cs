@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +15,13 @@ public class GameManager : LevelManager
     [SerializeField] private GameObject pauseMenu;
 
     [SerializeField] private GameObject gameOverMenu;
+    
+    //Map boundaries
+    public float maxY;
+    public float minY;
+    
+    public float maxX;
+    public float minX;
 
 
     private void Start()
