@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6297840037498600868}
   - component: {fileID: 3876376310255412175}
   - component: {fileID: 731573106324929497}
-  - component: {fileID: 7407517885129254637}
+  - component: {fileID: -8935247942043469223}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   managerPrefab: {fileID: 8108576441666582659, guid: ef39dfe289634cd45a0a2c8d116a3d99, type: 3}
---- !u!114 &7407517885129254637
+--- !u!114 &-8935247942043469223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
