@@ -16,15 +16,16 @@ public class Utilities : MonoBehaviour
         Instance = this;
     }
     
-    public void RotateObjectToFaceAnother(Transform objectToRotate, Vector2 targetPosition)
+    public float GetAngleOfTwoObjects(Transform startPosition, Vector2 targetPosition)
     {
-        //This is an ugly hack to prevent the player from rotating when the game is paused
+        //This is an ugly hack to prevent the object from rotating when the game is paused
+        //1000f is an arbitrary number that is not a valid angle
         if (Time.timeScale == 0)
-            return;
+            return 1000f;
         
-        Vector2 mouseDir = targetPosition - (Vector2)objectToRotate.position;
+        Vector2 mouseDir = targetPosition - (Vector2)startPosition.position;
         float angle = Mathf.Atan2(mouseDir.y, mouseDir.x) * Mathf.Rad2Deg;
-        objectToRotate.rotation = Quaternion.Euler(0, 0, angle - 90);
+        return angle - 90;
     }
     
     public void CreateHitText(Vector3 position, string text, Color color)

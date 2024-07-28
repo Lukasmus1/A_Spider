@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5659409816233128838}
   - component: {fileID: 4889213440600877615}
   - component: {fileID: 5376031730096929206}
-  m_Layer: 0
+  - component: {fileID: 4402054729279933247}
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,4 +139,30 @@ MonoBehaviour:
   speed: 10
   downedFlySprite: {fileID: 21300000, guid: 23109c23e57f1234eb80a8d2b8a13f9b, type: 3}
   hitTextPrefab: {fileID: 2407440959867238283, guid: 217dc6c73bdd50840b37260a9e79c192, type: 3}
-  gameManagerPrefab: {fileID: 8108576441666582659, guid: ef39dfe289634cd45a0a2c8d116a3d99, type: 3}
+--- !u!50 &4402054729279933247
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4578890153090419725}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

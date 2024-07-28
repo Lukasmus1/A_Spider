@@ -39,7 +39,11 @@ public class ArrowScript : MonoBehaviour
         }
         else
         {
-            Utilities.Instance.RotateObjectToFaceAnother(transform, target.transform.position);
+            float angle = Utilities.Instance.GetAngleOfTwoObjects(transform, target.transform.position);
+            if (!Mathf.Approximately(angle, 1000f))
+            {
+                transform.rotation = Quaternion.Euler(0f, 0f, angle);   
+            }
             
             Vector2 dir = target.transform.position - transform.parent.position;
             float distance = dir.magnitude;

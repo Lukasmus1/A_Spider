@@ -7,13 +7,20 @@ public class PlayerSpriteManipulator : MonoBehaviour
 
     private MouseProperties _mouseProperties;
 
+    private Rigidbody2D _rb;
+    
     private void Awake()
     {
         _mouseProperties = levelManager.GetComponent<MouseProperties>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        Utilities.Instance.RotateObjectToFaceAnother(transform, _mouseProperties.mousePosition);
+        float angle = Utilities.Instance.GetAngleOfTwoObjects(transform, _mouseProperties.mousePosition);
+        if (!Mathf.Approximately(angle, 1000f))
+        { 
+            _rb.MoveRotation(angle);   
+        }
     }
 }

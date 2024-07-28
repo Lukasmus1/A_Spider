@@ -16,26 +16,13 @@ public class BulletScript : MonoBehaviour
     
     [SerializeField] private GameObject hitTextPrefab;
     
-    [FormerlySerializedAs("gameManager")] [SerializeField] private GameObject gameManagerPrefab;
-    
     private Vector3 _direction;
-    
-    private float _maxY, _minY, _maxX, _minX;
     
     private void OnEnable()
     {
         _direction = player.transform.up;
         _timeAlive = 0f;
         _hit = false;
-    }
-
-    private void Start()
-    {
-        GameManager gameManagerScript = gameManagerPrefab.GetComponent<GameManager>();
-        _maxY = gameManagerScript.maxY + 0.2f;
-        _minY = gameManagerScript.minY - 0.2f;
-        _maxX = gameManagerScript.maxX + 0.2f;
-        _minX = gameManagerScript.minX - 0.2f;
     }
 
     private void OnDisable()
@@ -48,7 +35,7 @@ public class BulletScript : MonoBehaviour
         transform.position += _direction * (speed * Time.deltaTime);
         
         //If alive for too long or out of bounds
-        if (_timeAlive >= timeToLive || transform.position.y > _maxY || transform.position.y < _minY || transform.position.x > _maxX || transform.position.x < _minX)
+        if (_timeAlive >= timeToLive)
         {
             gameObject.SetActive(false);
         }
@@ -78,9 +65,11 @@ public class BulletScript : MonoBehaviour
             if (!enemyScript.isDead)
             {
                 enemyScript.RaiseEnemyShot();
-                Utilities.Instance.CreateHitText(other.transform.position, PlayerStats.Instance.Damage.ToString(), Color.red);
+                Utilities.Instance.CreateHitText(other.transform.position, PlayerStats.Instance.Damage.ToString(), Color.white);
             }
         }
+        
+        gameObject.SetActive(false);
     }
     
 }

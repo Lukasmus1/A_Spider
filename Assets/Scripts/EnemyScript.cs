@@ -1,27 +1,29 @@
-using TMPro;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    [HideInInspector] public bool isDead = false;
+    [HideInInspector] public bool isDead;
     
-    [SerializeField] private Sprite downedFlySprite;
-
-    [SerializeField] private GameObject healthText;
+    [HideInInspector] public EnemyStats enemyStats;
     
-    [SerializeField] private GameObject hitTextPrefab;
-
     //An event that will be raised when the enemy is shot in BulletScript.cs
     public delegate void EnemyShotDelegate();
     public event EnemyShotDelegate OnEnemyShot;
     
     public delegate void PlayerHitDelegate();
     public event PlayerHitDelegate OnPlayerHit;
+    
+    [SerializeField] private Sprite downedFlySprite;
 
-    [HideInInspector] public EnemyStats enemyStats;
+    [SerializeField] private GameObject healthText;
+    
+    [SerializeField] private GameObject hitTextPrefab;
+    
+    public Rigidbody2D rb;
     
     private void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         OnEnemyShot += EnemyShot;
         OnPlayerHit += PlayerHit;
         enemyStats = GetComponent<BasicEnemyStats>();
@@ -47,6 +49,7 @@ public class EnemyScript : MonoBehaviour
         if (isDead)
         {
             GetComponentInChildren<SpriteRenderer>().sprite = downedFlySprite;
+            rb.drag = 1f;
         }
     }
     
