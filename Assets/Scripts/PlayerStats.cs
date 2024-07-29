@@ -5,6 +5,10 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance { get; private set; }
 
+#if UNITY_EDITOR
+    [SerializeField] private bool infiniteHealth;
+#endif
+    
     public delegate void Death();
     public event Death OnDeath;
 
@@ -31,6 +35,13 @@ public class PlayerStats : MonoBehaviour
 
         set
         {
+#if UNITY_EDITOR
+            if (infiniteHealth)
+            {
+                return;
+            }
+#endif
+            
             _health = value;
             if (_health <= 0)
             {

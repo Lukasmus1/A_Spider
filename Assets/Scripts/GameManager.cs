@@ -54,45 +54,64 @@ public class GameManager : LevelManager
 
     // ReSharper disable Unity.PerformanceAnalysis
     //This is called very few times, so it's not a performance issue
+    //Should move spawming to a separate script
     private void SpawnEnemy()
     {
         Vector2 randomPosition = Utilities.Instance.GetRandomVector2(minX, maxX, minY, maxY);
-        if (randomPosition.x < player.transform.position.x + 5 && randomPosition.x > player.transform.position.x - 5)
+        if (randomPosition.x < player.transform.position.x + 10 && randomPosition.x > player.transform.position.x - 10)
         {
             //If the random position is too close to the player, move it to the right or left
-            CheckDistanceToPlayer(ref randomPosition.x, maxX, minX);
+            MoveFromPlayer(ref randomPosition.x, maxX, minX);
         }
         
-        if (randomPosition.y < player.transform.position.y + 5 && randomPosition.y > player.transform.position.y - 5)
+        if (randomPosition.y < player.transform.position.y + 10 && randomPosition.y > player.transform.position.y - 10)
         {
             //If the random position is too close to the player, move it up or down
-            CheckDistanceToPlayer(ref randomPosition.y, maxY, minY);
+            MoveFromPlayer(ref randomPosition.y, maxY, minY);
         }
         
+        randomPosition = CheckDistanceFromMax(randomPosition);
         
-        GameObject enemy = Instantiate(enemyPrefab, player.transform.position + (Vector3)randomPosition, Quaternion.identity);
+        GameObject enemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
         ArrowScript arrowScript = Instantiate(arrowPrefab, player.transform).GetComponent<ArrowScript>();
         arrowScript.SetVariables(enemy);
     }
 
-    private static void CheckDistanceToPlayer(ref float pos, float max, float min)
+    private static void MoveFromPlayer(ref float pos, float max, float min)
     {
-        if (Random.Range(0, 1) == 0)
+        if (Random.Range(0, 2) == 0)
         {
             pos += 10;
-            if (pos > max)
-            {
-                pos -= 20;
-            }
         }
         else
         {
             pos -= 10;
-            if (pos < min)
-            {
-                pos += 20;
-            }
         }
+    }
+    
+    private Vector2 CheckDistanceFromMax(Vector2 pos)
+    {
+        print("1: " + pos);
+        if (pos.x > maxX)
+        {
+            pos.x = maxX - 2;
+        }
+        else if (pos.x < minX)
+        {
+            pos.x = minX + 2;
+        }
+        
+        if (pos.y > maxY)
+        {
+            pos.y = maxY - 2;
+        }
+        else if (pos.y < minY)
+        {
+            pos.y = minY + 2;
+        }
+        print("2: " + pos);
+        
+        return pos;
     }
     
     //This method exists for the event OnDeath in PlayerStats.cs
