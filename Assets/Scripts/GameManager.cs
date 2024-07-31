@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -10,7 +9,7 @@ public class GameManager : LevelManager
     [SerializeField] private GameObject enemyPrefab;
 
     [SerializeField] private float spawnCooldown = 5f;
-    private float _timeSinceLastSpawn = 0f;
+    private float _timeSinceLastSpawn;
     
     [SerializeField] private GameObject arrowPrefab;
     
@@ -61,13 +60,13 @@ public class GameManager : LevelManager
         if (randomPosition.x < player.transform.position.x + 10 && randomPosition.x > player.transform.position.x - 10)
         {
             //If the random position is too close to the player, move it to the right or left
-            MoveFromPlayer(ref randomPosition.x, maxX, minX);
+            MoveFromPlayer(ref randomPosition.x);
         }
         
         if (randomPosition.y < player.transform.position.y + 10 && randomPosition.y > player.transform.position.y - 10)
         {
             //If the random position is too close to the player, move it up or down
-            MoveFromPlayer(ref randomPosition.y, maxY, minY);
+            MoveFromPlayer(ref randomPosition.y);
         }
         
         randomPosition = CheckDistanceFromMax(randomPosition);
@@ -77,7 +76,7 @@ public class GameManager : LevelManager
         arrowScript.SetVariables(enemy);
     }
 
-    private static void MoveFromPlayer(ref float pos, float max, float min)
+    private static void MoveFromPlayer(ref float pos)
     {
         if (Random.Range(0, 2) == 0)
         {
@@ -91,7 +90,6 @@ public class GameManager : LevelManager
     
     private Vector2 CheckDistanceFromMax(Vector2 pos)
     {
-        print("1: " + pos);
         if (pos.x > maxX)
         {
             pos.x = maxX - 2;
@@ -109,7 +107,6 @@ public class GameManager : LevelManager
         {
             pos.y = minY + 2;
         }
-        print("2: " + pos);
         
         return pos;
     }

@@ -1,7 +1,9 @@
-public class BasicEnemyStats : EnemyStats
+using UnityEngine;
+
+public class BasicEnemyStats : MonoBehaviour, IEnemyStats
 {
     private int _enemyHealth = 10;
-    public override int EnemyHealth
+    public int EnemyHealth
     {
         get => _enemyHealth;
         set
@@ -15,6 +17,11 @@ public class BasicEnemyStats : EnemyStats
         }
     }
     
-    public override int EnemyPoints { get; set; } = 5;
-    public override int EnemyDamage { get; set; } = 5;
+    public int EnemyPoints { get; set; } = 5;
+    public int EnemyDamage { get; set; } = 5;
+    public void OnDestroy()
+    {
+        PlayerStats.Instance.Points += EnemyPoints;
+        UiScript.RaisePointsChange();
+    }
 }

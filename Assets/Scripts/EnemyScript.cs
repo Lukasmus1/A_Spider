@@ -4,7 +4,7 @@ public class EnemyScript : MonoBehaviour
 {
     [HideInInspector] public bool isDead;
     
-    [HideInInspector] public EnemyStats enemyStats;
+    [HideInInspector] public IEnemyStats enemyStats;
     
     //An event that will be raised when the enemy is shot in BulletScript.cs
     public delegate void EnemyShotDelegate();
