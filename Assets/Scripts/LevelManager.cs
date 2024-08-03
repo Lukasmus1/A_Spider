@@ -15,6 +15,9 @@ public class LevelManager : MonoBehaviour
     
     public void QuitGame()
     {
+#if UNITY_EDITOR
+        SavingSystem.DeletePlayerStats();
+#endif
         Application.Quit();
     }
 }

@@ -48,4 +48,13 @@ public class SavingSystem : MonoBehaviour
             save.GetVars(PlayerStats.Instance);
         }
     }
+    
+    public static void DeletePlayerStats()
+    {
+        string path = Application.persistentDataPath + PlayerStatsFileName;
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
 }
