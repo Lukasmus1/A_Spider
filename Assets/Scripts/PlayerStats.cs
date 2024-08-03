@@ -36,7 +36,8 @@ public class PlayerStats : MonoBehaviour
         }
 
     }
-
+    public int MaxHealth { get; set; }
+    
     public int Damage { get; set; }
 
     public float InvincibilityTime { get; set; } = 0.5f;
@@ -51,7 +52,10 @@ public class PlayerStats : MonoBehaviour
             Destroy(gameObject);
         }
         Instance = this;
+        
+        //Loading the player stats from the save file
         SavingSystem.LoadPlayerStats();
+        Health = MaxHealth;
     }
 
     private void OnDisable()
