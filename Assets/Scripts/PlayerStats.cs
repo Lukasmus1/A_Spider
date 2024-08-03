@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -12,23 +11,9 @@ public class PlayerStats : MonoBehaviour
     public delegate void Death();
     public event Death OnDeath;
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        Instance = this;
-    }
+    public int Points { get; set; }
 
-    private void OnDisable()
-    {
-        OnDeath = null;
-    }
-
-    public int Points { get; set; } = 0;
-
-    private int _health = 100;
+    private int _health;
     public int Health
     {
         get => _health;
@@ -52,15 +37,28 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-    public int Damage { get; set; } = 10;
+    public int Damage { get; set; }
 
-    public float InvincibilityTime { get; } = 0.5f;
+    public float InvincibilityTime { get; set; } = 0.5f;
 
     public bool IsInvincible { get; set; }
-
     private float _invincibilityTimer;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        Instance = this;
+        SavingSystem.LoadPlayerStats();
+    }
 
+    private void OnDisable()
+    {
+        OnDeath = null;
+    }
+    
     private void Update()
     {
         if (!IsInvincible) 

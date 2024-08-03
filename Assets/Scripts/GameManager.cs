@@ -34,6 +34,7 @@ public class GameManager : LevelManager
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        SavingSystem.SavePlayerStats();
     }
     
     private void Update()
