@@ -4,6 +4,7 @@ using System;
 [Serializable]
 public class PlayerStatsSave
 {
+    private const int Health = 100;
     private int _points = 0;
     private int _damage = 10;
     private float _invincibilityTime = 0.5f;
@@ -17,6 +18,7 @@ public class PlayerStatsSave
     
     public void GetVars(PlayerStats playerStats)
     {
+        playerStats.Health = Health;
         playerStats.Points = _points;
         playerStats.Damage = _damage;
         playerStats.InvincibilityTime = _invincibilityTime;
