@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 731573106324929497}
   - component: {fileID: -8935247942043469223}
   - component: {fileID: 9110608145152037609}
+  - component: {fileID: -1517152961550684710}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -182,7 +183,7 @@ MonoBehaviour:
   downedFlySprite: {fileID: 21300000, guid: 23109c23e57f1234eb80a8d2b8a13f9b, type: 3}
   healthText: {fileID: 2407440959867238283, guid: 19f76ff887708f74faa12f340c92d9e4, type: 3}
   hitTextPrefab: {fileID: 2407440959867238283, guid: 217dc6c73bdd50840b37260a9e79c192, type: 3}
-  enemyStats: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!114 &731573106324929497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,3 +237,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!195 &-1517152961550684710
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9210431239748014992}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

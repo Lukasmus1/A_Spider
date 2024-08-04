@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -10,12 +11,17 @@ public class EnemyMovement : MonoBehaviour
     private GameObject _player;
     private EnemyScript _enemyScript;
     private Rigidbody2D _rb;
+    private NavMeshAgent _agent;
     
     private void Awake()
     {
         _player = GameObject.FindWithTag("Player");
         _enemyScript = GetComponent<EnemyScript>();
         _rb = _enemyScript.rb;
+        
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
     }
     
     private void Update()
@@ -34,8 +40,9 @@ public class EnemyMovement : MonoBehaviour
     {
         if (_player && !_enemyScript.isDead)
         {
-            Vector2 dir = _player.transform.position - transform.position;
-            _rb.MovePosition(_rb.position + dir.normalized * (speed * Time.fixedDeltaTime));
+            _agent.SetDestination(_player.transform.position);
+            /*Vector2 dir = _player.transform.position - transform.position;
+            _rb.MovePosition(_rb.position + dir.normalized * (speed * Time.fixedDeltaTime));*/
         }
     }
 }
