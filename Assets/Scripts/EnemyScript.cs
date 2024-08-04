@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class EnemyScript : MonoBehaviour
     
     public Rigidbody2D rb;
     
+    private NavMeshAgent _agent;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,6 +31,7 @@ public class EnemyScript : MonoBehaviour
         enemyStats = GetComponent<BasicEnemyStats>();
         EnemyUIScript enemyUIScript = Instantiate(healthText, transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity).GetComponent<EnemyUIScript>();
         enemyUIScript.StartScript(gameObject, this);
+        _agent = GetComponent<NavMeshAgent>();
     }
 
     //Remove the event when the object is destroyed
@@ -49,6 +52,7 @@ public class EnemyScript : MonoBehaviour
         if (isDead)
         {
             GetComponentInChildren<SpriteRenderer>().sprite = downedFlySprite;
+            _agent.speed = 0f;
             rb.drag = 1f;
         }
     }

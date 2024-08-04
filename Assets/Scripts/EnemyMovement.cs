@@ -1,13 +1,8 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
-
-    [SerializeField] private GameObject managerPrefab;
-    
     private GameObject _player;
     private EnemyScript _enemyScript;
     private Rigidbody2D _rb;
@@ -33,16 +28,7 @@ public class EnemyMovement : MonoBehaviour
             { 
                 _rb.MoveRotation(angle);   
             }
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (_player && !_enemyScript.isDead)
-        {
             _agent.SetDestination(_player.transform.position);
-            /*Vector2 dir = _player.transform.position - transform.position;
-            _rb.MovePosition(_rb.position + dir.normalized * (speed * Time.fixedDeltaTime));*/
         }
     }
 }
