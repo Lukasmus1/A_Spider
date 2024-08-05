@@ -40,10 +40,12 @@ public class PlayerStats : MonoBehaviour
     
     public int Damage { get; set; }
 
-    public float InvincibilityTime { get; set; } = 0.5f;
+    public float InvincibilityTime { get; set; }
 
     public bool IsInvincible { get; set; }
     private float _invincibilityTimer;
+    
+    public float ShotCooldown { get; set; }
 
     private void Awake()
     {

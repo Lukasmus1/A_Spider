@@ -5,9 +5,11 @@ using System;
 public class PlayerStatsSave
 {
     private const int MaxHealth = 100;
-    private int _points = 0;
+    private int _points;
     private int _damage = 10;
     private float _invincibilityTime = 0.5f;
+    private float _shotCooldown = 1f;
+    
 
     public void SetVars(PlayerStats playerStats)
     {
@@ -15,6 +17,7 @@ public class PlayerStatsSave
         _points = playerStats.Points;
         _damage = playerStats.Damage;
         _invincibilityTime = playerStats.InvincibilityTime;
+        _shotCooldown = playerStats.ShotCooldown;
     }
     
     public void GetVars(PlayerStats playerStats)
@@ -23,5 +26,6 @@ public class PlayerStatsSave
         playerStats.Points = _points;
         playerStats.Damage = _damage;
         playerStats.InvincibilityTime = _invincibilityTime;
+        playerStats.ShotCooldown = _shotCooldown;
     }
 }

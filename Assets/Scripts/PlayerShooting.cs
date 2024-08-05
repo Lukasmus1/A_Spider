@@ -5,9 +5,8 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private GameObject levelManager;
 
     [SerializeField] private GameObject[] bullets;
-    private static int _currentBulletIndex = 0;
+    private static int _currentBulletIndex;
     
-    private const float Cooldown = 0.5f;
     private float _lastShotTime;
     private bool _canShoot = true;
     
@@ -39,14 +38,16 @@ public class PlayerShooting : MonoBehaviour
         //This is here for a cooldown between shots
         if (!_canShoot)
         {
-            if (Cooldown > _lastShotTime)
+            if (PlayerStats.Instance.ShotCooldown > _lastShotTime)
             {
                 _lastShotTime += Time.deltaTime;
+                UiScript.RaiseCooldownChange(_lastShotTime);
             }
             else
             {
                 _lastShotTime = 0f;
                 _canShoot = true;
+                UiScript.RaiseCooldownChange(_lastShotTime);
             }
         }
     }
