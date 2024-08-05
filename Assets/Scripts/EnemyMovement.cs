@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
         _player = GameObject.FindWithTag("Player");
         _enemyScript = GetComponent<EnemyScript>();
         _rb = _enemyScript.rb;
+        UpdateRotation();
         
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
@@ -23,12 +24,17 @@ public class EnemyMovement : MonoBehaviour
     {
         if (_player && !_enemyScript.isDead)
         {
-            float angle = Utilities.Instance.GetAngleOfTwoObjects(transform, _player.transform.position);
-            if (!Mathf.Approximately(angle, 1000f))
-            { 
-                _rb.MoveRotation(angle);   
-            }
+            UpdateRotation();
             _agent.SetDestination(_player.transform.position);
+        }
+    }
+
+    private void UpdateRotation()
+    {
+        float angle = Utilities.Instance.GetAngleOfTwoObjects(transform, _player.transform.position);
+        if (!Mathf.Approximately(angle, 1000f))
+        { 
+            _rb.MoveRotation(angle);   
         }
     }
 }
