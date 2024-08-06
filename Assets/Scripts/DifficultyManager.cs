@@ -1,27 +1,20 @@
+using System;
 using UnityEngine;
 
 public class DifficultyManager : MonoBehaviour
 {
-    [SerializeField] private float timeToIncreaseDifficulty = 10f;
+    [SerializeField] private float timeToIncreaseDifficulty = 1f;
+    private float _timeSinceLastIncrease;
     
-    [SerializeField] private BasicEnemyStats enemyStats;
+    public static float TimeMultiplier { get; private set; } = 1f;
     
-    private float _time = 0f;
-
     private void Update()
     {
-        _time += Time.deltaTime;
-        if (_time >= timeToIncreaseDifficulty)
+        _timeSinceLastIncrease += Time.deltaTime;
+        if (_timeSinceLastIncrease >= timeToIncreaseDifficulty)
         {
-            IncreaseDifficulty();
-            _time = 0f;
+            _timeSinceLastIncrease = 0;
+            TimeMultiplier++;
         }
-    }
-
-    private void IncreaseDifficulty()
-    {
-        enemyStats.EnemyHealth += 10;
-        enemyStats.EnemyDamage += 5;
-        enemyStats.EnemyPoints += 5;
     }
 }

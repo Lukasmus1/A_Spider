@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 public class GameManager : LevelManager
@@ -6,9 +8,6 @@ public class GameManager : LevelManager
     [SerializeField] private GameObject player;
 
     [SerializeField] private GameObject enemyPrefab;
-
-    [SerializeField] private float spawnCooldown = 5f;
-    private float _timeSinceLastSpawn;
     
     [SerializeField] private GameObject arrowPrefab;
     
@@ -30,6 +29,11 @@ public class GameManager : LevelManager
         PlayerStats.Instance.OnDeath += TimescaleZero;
     }
 
+    private void OnDisable()
+    {
+        
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -38,13 +42,6 @@ public class GameManager : LevelManager
     
     private void Update()
     {
-        _timeSinceLastSpawn += Time.deltaTime;
-        if (_timeSinceLastSpawn >= spawnCooldown)
-        {
-            Spawner.SpawnEnemy(minX, maxX, minY, maxY, player, enemyPrefab, arrowPrefab);
-            _timeSinceLastSpawn = 0f;
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape) && !gameOverMenu.activeSelf)
         {
             PauseGame();

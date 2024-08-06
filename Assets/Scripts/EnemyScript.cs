@@ -52,8 +52,8 @@ public class EnemyScript : MonoBehaviour
         if (isDead)
         {
             GetComponentInChildren<SpriteRenderer>().sprite = downedFlySprite;
-            _agent.speed = 0f;
-            rb.drag = 1f;
+            _agent.enabled = false;
+            rb.drag = 2f;
         }
     }
     
