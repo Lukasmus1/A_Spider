@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 8633011930431637611}
   - component: {fileID: 3358084337184593640}
   - component: {fileID: -1198544398637469317}
+  - component: {fileID: 1079094359521927978}
+  - component: {fileID: 7457589120703189508}
+  - component: {fileID: 8213854635084650296}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -47,7 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   enemyPrefab: {fileID: 9210431239748014992, guid: d5086b74c70dd884eb4a3ba6c89909d6, type: 3}
-  spawnCooldown: 100
   arrowPrefab: {fileID: 5829730306650233514, guid: cd31d6acc6569c848877a68855903fa0, type: 3}
   pauseMenu: {fileID: 0}
   gameOverMenu: {fileID: 0}
@@ -67,3 +69,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d06144b2b7c2c2478c91ff4ab88a790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1079094359521927978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108576441666582659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc530629ea16576468dcb19d11abbe9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitTextPrefab: {fileID: 2407440959867238283, guid: 217dc6c73bdd50840b37260a9e79c192, type: 3}
+--- !u!114 &7457589120703189508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108576441666582659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5ee3cfbeab2f34a8df8d9304ad5f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 9210431239748014992, guid: d5086b74c70dd884eb4a3ba6c89909d6, type: 3}
+  arrowPrefab: {fileID: -2436347030535873996, guid: cd31d6acc6569c848877a68855903fa0, type: 3}
+  player: {fileID: 0}
+  gm: {fileID: 3358084337184593640}
+  spawnRate: 2
+--- !u!114 &8213854635084650296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108576441666582659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e9bf5078a7afa45839af29ddce35d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToIncreaseDifficulty: 5

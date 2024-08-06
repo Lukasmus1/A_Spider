@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,14 +28,19 @@ public class UiScript : MonoBehaviour
     
     private delegate void Notification(string message);
     private static event Notification OnNotification;
-    
-    //Start because PlayerStats.Instance is not yet set in Awake
-    private void Start()
+    private float _notificationTime;
+
+    private void Awake()
     {
         OnHealthChange += UpdateHealth;
         OnPointsChange += PointsUpdate;
         OnCooldownChange += UpdateCooldown;
         OnNotification += ShowNotification;
+    }
+
+    //Start because PlayerStats.Instance is not yet set in Awake
+    private void Start()
+    {
         PlayerStats.Instance.OnDeath += ShowGameOverPanel;
         
         //I could call the event instead but this is safer
@@ -50,6 +56,19 @@ public class UiScript : MonoBehaviour
         OnPointsChange = null;
         OnCooldownChange = null;
         OnNotification = null;
+    }
+
+    private void Update()
+    {
+        if (notificationText.gameObject.activeSelf)
+        {
+            _notificationTime += Time.deltaTime;
+            if (_notificationTime >= 3)
+            {
+                HideNotification();
+                _notificationTime = 0;
+            }
+        }
     }
 
     private void UpdateHealth()
@@ -102,12 +121,15 @@ public class UiScript : MonoBehaviour
         OnCooldownChange?.Invoke(cooldown);
     }
     
-    //Create a coroutine to show the notification for a few seconds
     private void ShowNotification(string message)
     {
-        notificationText.gameObject.SetActive(true);
         notificationText.text = message;
-        //Start some kind of coroutine
+        notificationText.gameObject.SetActive(true);
+    }
+    
+    private void HideNotification()
+    {
+        notificationText.gameObject.SetActive(false);
     }
     
     public static void RaiseNotification(string message)

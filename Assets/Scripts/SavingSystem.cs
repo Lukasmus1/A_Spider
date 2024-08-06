@@ -40,10 +40,12 @@ public class SavingSystem : MonoBehaviour
             }
             
             save!.GetVars(PlayerStats.Instance);
+            UiScript.RaiseNotification("Save loaded!");
             fs.Close();
         }
         else
         {
+            UiScript.RaiseNotification("No save file found!");
             save = new PlayerStatsSave();
             save.GetVars(PlayerStats.Instance);
         }
