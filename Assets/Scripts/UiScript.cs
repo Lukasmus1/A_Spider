@@ -14,6 +14,8 @@ public class UiScript : MonoBehaviour
     [SerializeField] private Slider cooldownSlider;
     [SerializeField] private TMP_Text cooldownText;
     
+    [SerializeField] private TMP_Text notificationText;
+    
     private delegate void HealthChange();
     private static event HealthChange OnHealthChange;
     
@@ -23,12 +25,16 @@ public class UiScript : MonoBehaviour
     private delegate void CooldownChange(float cooldown);
     private static event CooldownChange OnCooldownChange;
     
+    private delegate void Notification(string message);
+    private static event Notification OnNotification;
+    
     //Start because PlayerStats.Instance is not yet set in Awake
     private void Start()
     {
         OnHealthChange += UpdateHealth;
         OnPointsChange += PointsUpdate;
         OnCooldownChange += UpdateCooldown;
+        OnNotification += ShowNotification;
         PlayerStats.Instance.OnDeath += ShowGameOverPanel;
         
         //I could call the event instead but this is safer
@@ -37,12 +43,13 @@ public class UiScript : MonoBehaviour
         
         cooldownSlider.maxValue = PlayerStats.Instance.ShotCooldown;
     }
-
+    
     private void OnDestroy()
     {
         OnHealthChange = null;
         OnPointsChange = null;
         OnCooldownChange = null;
+        OnNotification = null;
     }
 
     private void UpdateHealth()
@@ -93,5 +100,18 @@ public class UiScript : MonoBehaviour
     public static void RaiseCooldownChange(float cooldown)
     {
         OnCooldownChange?.Invoke(cooldown);
+    }
+    
+    //Create a coroutine to show the notification for a few seconds
+    private void ShowNotification(string message)
+    {
+        notificationText.gameObject.SetActive(true);
+        notificationText.text = message;
+        //Start some kind of coroutine
+    }
+    
+    public static void RaiseNotification(string message)
+    {
+        OnNotification?.Invoke(message);
     }
 }

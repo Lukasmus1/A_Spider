@@ -7,7 +7,7 @@ public class DifficultyManager : MonoBehaviour
     private float _timeSinceLastIncrease;
     
     public static float TimeMultiplier { get; private set; } = 1f;
-    
+
     private void Update()
     {
         _timeSinceLastIncrease += Time.deltaTime;
@@ -15,6 +15,7 @@ public class DifficultyManager : MonoBehaviour
         {
             _timeSinceLastIncrease = 0;
             TimeMultiplier++;
+            UiScript.RaiseNotification("Difficulty increased!");
         }
     }
 }
