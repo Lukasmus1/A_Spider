@@ -66,7 +66,6 @@ public class UiScript : MonoBehaviour
             if (_notificationTime >= 3)
             {
                 HideNotification();
-                _notificationTime = 0;
             }
         }
     }
@@ -123,13 +122,25 @@ public class UiScript : MonoBehaviour
     
     private void ShowNotification(string message)
     {
+        notificationText.color = new Color(notificationText.color.r, notificationText.color.g, notificationText.color.b, 1);
         notificationText.text = message;
         notificationText.gameObject.SetActive(true);
     }
     
     private void HideNotification()
     {
+        if (notificationText.color.a > 0)
+        {
+            float alpha = notificationText.color.a - 1 * Time.deltaTime;
+            if (alpha < 0)
+            {
+                alpha = 0;
+            }
+            notificationText.color = new Color(notificationText.color.r, notificationText.color.g, notificationText.color.b, alpha);
+            return;
+        }
         notificationText.gameObject.SetActive(false);
+        _notificationTime = 0;
     }
     
     public static void RaiseNotification(string message)
