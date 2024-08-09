@@ -20,4 +20,9 @@ public class LevelManager : MonoBehaviour
 #endif
         Application.Quit();
     }
+
+    public void DeleteSave()
+    {
+        SavingSystem.DeletePlayerStats();
+    }
 }

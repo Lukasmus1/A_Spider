@@ -55,8 +55,7 @@ public class PlayerStats : MonoBehaviour
         }
         Instance = this;
         
-        //Loading the player stats from the save file
-        SavingSystem.LoadPlayerStats();
+        SavingSystem.LoadPlayerStats().LoadVarsToPlayer(Instance);
         Health = MaxHealth;
     }
 

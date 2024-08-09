@@ -4,28 +4,38 @@ using System;
 [Serializable]
 public class PlayerStatsSave
 {
-    private const int MaxHealth = 100;
-    private int _points;
-    private int _damage = 10;
-    private float _invincibilityTime = 0.5f;
-    private float _shotCooldown = 1f;
-    
+    public int MaxHealth { get; private set; } = 100;
+    public int Points { get; private set; } = 0;
+    public int Damage { get; private set; } = 10;
+    public float InvincibilityTime { get; private set; } = 0.5f;
+    public float ShotCooldown { get; private set; } = 1.5f;
 
     public void SetVars(PlayerStats playerStats)
     {
         playerStats.MaxHealth = MaxHealth;
-        _points = playerStats.Points;
-        _damage = playerStats.Damage;
-        _invincibilityTime = playerStats.InvincibilityTime;
-        _shotCooldown = playerStats.ShotCooldown;
+        Points = playerStats.Points;
+        Damage = playerStats.Damage;
+        InvincibilityTime = playerStats.InvincibilityTime;
+        ShotCooldown = playerStats.ShotCooldown;
     }
     
-    public void GetVars(PlayerStats playerStats)
+    /*public PlayerStatsSave LoadVars(PlayerStatsSave playerStats)
     {
         playerStats.MaxHealth = MaxHealth;
-        playerStats.Points = _points;
-        playerStats.Damage = _damage;
-        playerStats.InvincibilityTime = _invincibilityTime;
-        playerStats.ShotCooldown = _shotCooldown;
+        playerStats.Points = Points;
+        playerStats.Damage = Damage;
+        playerStats.InvincibilityTime = InvincibilityTime;
+        playerStats.ShotCooldown = ShotCooldown;
+        
+        return playerStats;
+    }*/
+    
+    public void LoadVarsToPlayer(PlayerStats playerStats)
+    {
+        playerStats.MaxHealth = MaxHealth;
+        playerStats.Points = Points;
+        playerStats.Damage = Damage;
+        playerStats.InvincibilityTime = InvincibilityTime;
+        playerStats.ShotCooldown = ShotCooldown;
     }
 }

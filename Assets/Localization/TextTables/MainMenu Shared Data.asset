@@ -23,6 +23,14 @@ MonoBehaviour:
     m_Key: quitGame
     m_Metadata:
       m_Items: []
+  - m_Id: 14644897017982976
+    m_Key: shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14644962121969664
+    m_Key: delSave
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

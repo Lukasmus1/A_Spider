@@ -26,6 +26,14 @@ MonoBehaviour:
     m_Localized: "Odej\xEDt ze hry"
     m_Metadata:
       m_Items: []
+  - m_Id: 14644897017982976
+    m_Localized: Obchod
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14644962121969664
+    m_Localized: Smazat Postup
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -20,7 +20,7 @@ public class SavingSystem : MonoBehaviour
         fs.Close();
     }
     
-    public static void LoadPlayerStats()
+    public static PlayerStatsSave LoadPlayerStats()
     {
         string path = Application.persistentDataPath + PlayerStatsFileName;
         PlayerStatsSave save;
@@ -36,18 +36,17 @@ public class SavingSystem : MonoBehaviour
             catch (Exception e)
             {
                 Debug.LogError("Failed to load save file: " + e.Message);
-                return;
+                return null;
             }
             
-            save!.GetVars(PlayerStats.Instance);
-            UiScript.RaiseNotification("Save loaded!");
+            print(save.MaxHealth);
             fs.Close();
+            return save;
         }
         else
         {
-            UiScript.RaiseNotification("No save file found!");
             save = new PlayerStatsSave();
-            save.GetVars(PlayerStats.Instance);
+            return save;
         }
     }
     
