@@ -25,7 +25,7 @@ public class BasicEnemyStats : MonoBehaviour, IEnemyStats
 
     public void OnDestroy()
     {
-        PlayerStats.Instance.Points += EnemyPoints;
+        PlayerStats.Instance.PointsInstance.Points += EnemyPoints;
         UiScript.RaisePointsChange();
     }
 

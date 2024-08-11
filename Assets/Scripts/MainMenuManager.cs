@@ -22,11 +22,11 @@ public class MainMenuManager : LevelManager
     {
         PlayerStatsSave save = SavingSystem.LoadPlayerStats();
 
-        healthText.text = save.MaxHealth.ToString();
-        pointsText.text = save.Points.ToString();
-        damageText.text = save.Damage.ToString();
-        invincibilityText.text = save.InvincibilityTime.ToString("F2") + " s";
-        cooldownText.text = save.ShotCooldown.ToString("F2") + " s";
+        healthText.text = save.HealthInst.MaxHealth.ToString();
+        pointsText.text = save.PointsInst.Points.ToString();
+        damageText.text = save.DamageInst.Damage.ToString();
+        invincibilityText.text = save.InvincibilityInst.InvincibilityTime.ToString("F2") + " s";
+        cooldownText.text = save.CooldownInst.ShotCooldown.ToString("F2") + " s";
     }
     
     public new void DeleteSave()

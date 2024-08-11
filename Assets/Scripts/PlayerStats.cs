@@ -10,42 +10,14 @@ public class PlayerStats : MonoBehaviour
     
     public delegate void Death();
     public event Death OnDeath;
-
-    public int Points { get; set; }
-
-    private int _health;
-    public int Health
-    {
-        get => _health;
-
-        set
-        {
-#if UNITY_EDITOR
-            if (infiniteHealth)
-            {
-                return;
-            }
-#endif
-            
-            _health = value;
-            if (_health <= 0)
-            {
-                _health = 0;
-                OnDeath?.Invoke();
-            }
-        }
-
-    }
-    public int MaxHealth { get; set; }
     
-    public int Damage { get; set; }
-
-    public float InvincibilityTime { get; set; }
-
-    public bool IsInvincible { get; set; }
+    public HealthClass HealthInstance { get; set; }
+    public DamageClass DamageInstance { get; set; }
+    public InvincibilityClass InvincibilityInstance { get; set; }
+    public PointsClass PointsInstance { get; set; }
+    public CooldownScript CooldownInstance { get; set; }
+    
     private float _invincibilityTimer;
-    
-    public float ShotCooldown { get; set; }
 
     private void Awake()
     {
@@ -56,7 +28,7 @@ public class PlayerStats : MonoBehaviour
         Instance = this;
         
         SavingSystem.LoadPlayerStats().LoadVarsToPlayer(Instance);
-        Health = MaxHealth;
+        HealthInstance.SetVars(ref infiniteHealth);
     }
 
     private void OnDisable()
@@ -66,14 +38,19 @@ public class PlayerStats : MonoBehaviour
     
     private void Update()
     {
-        if (!IsInvincible) 
+        if (!InvincibilityInstance.IsInvincible) 
             return;
         
         _invincibilityTimer += Time.deltaTime;
-        if (_invincibilityTimer >= InvincibilityTime)
+        if (_invincibilityTimer >= InvincibilityInstance.InvincibilityTime)
         {
-            IsInvincible = false;
+            InvincibilityInstance.IsInvincible = false;
             _invincibilityTimer = 0;
         }
+    }
+    
+    public void InvokeOnDeath()
+    {
+        OnDeath?.Invoke();
     }
 }

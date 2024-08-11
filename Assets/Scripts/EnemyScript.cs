@@ -48,7 +48,7 @@ public class EnemyScript : MonoBehaviour
     
     private void EnemyShot()
     {
-        enemyStats.EnemyHealth -= PlayerStats.Instance.Damage;
+        enemyStats.EnemyHealth -= PlayerStats.Instance.DamageInstance.Damage;
         if (isDead)
         {
             GetComponentInChildren<SpriteRenderer>().sprite = downedFlySprite;
@@ -68,7 +68,7 @@ public class EnemyScript : MonoBehaviour
             }
             else
             {
-                if (!PlayerStats.Instance.IsInvincible)
+                if (!PlayerStats.Instance.InvincibilityInstance.IsInvincible)
                 {
                     OnPlayerHit?.Invoke();
                     Utilities.Instance.CreateHitText(other.transform.position, enemyStats.EnemyDamage.ToString(), Color.red);
@@ -79,8 +79,8 @@ public class EnemyScript : MonoBehaviour
 
     private void PlayerHit()
     {
-        PlayerStats.Instance.Health -= enemyStats.EnemyDamage;
-        PlayerStats.Instance.IsInvincible = true;
+        PlayerStats.Instance.HealthInstance.Health -= enemyStats.EnemyDamage;
+        PlayerStats.Instance.InvincibilityInstance.IsInvincible = true;
         UiScript.RaiseHealthChange();
     }
 }

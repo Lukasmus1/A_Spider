@@ -27,11 +27,6 @@ public class GameManager : LevelManager
         PlayerStats.Instance.OnDeath += TimescaleZero;
     }
 
-    private void OnDisable()
-    {
-        
-    }
-
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");

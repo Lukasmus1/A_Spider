@@ -39,7 +39,6 @@ public class SavingSystem : MonoBehaviour
                 return null;
             }
             
-            print(save.MaxHealth);
             fs.Close();
             return save;
         }
