@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,9 +28,9 @@ public class GameManager : LevelManager
         PlayerStats.Instance.OnDeath += TimescaleZero;
     }
 
-    public void MainMenu()
+    public override void LoadScene(SceneAsset sc)
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(sc.name);
         SavingSystem.SavePlayerStats();
     }
     
@@ -42,7 +43,7 @@ public class GameManager : LevelManager
     }
     
     //This method exists for the event OnDeath in PlayerStats.cs
-    private void TimescaleZero()
+    private static void TimescaleZero()
     {
         Time.timeScale = 0;
     }

@@ -34,6 +34,10 @@ MonoBehaviour:
     m_Localized: Smazat Postup
     m_Metadata:
       m_Items: []
+  - m_Id: 15341631939506176
+    m_Localized: "N\xE1vrat"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

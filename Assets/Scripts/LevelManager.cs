@@ -1,11 +1,12 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public void LoadGame()
+    public virtual void LoadScene(SceneAsset sc)
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(sc.name);
     }
 
     public void ReloadActiveScene()
