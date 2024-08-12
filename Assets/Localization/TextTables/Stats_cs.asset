@@ -38,6 +38,33 @@ MonoBehaviour:
     m_Localized: Cooldown
     m_Metadata:
       m_Items: []
+  - m_Id: 526729408376832
+    m_Localized: "Pokud tv\xE9 \u017Eivoty spadnou na 0, um\u0159e\u0161. Nep\u0159\xE1telsk\xE9
+      \xFAtoky tv\xE9 \u017Eivoty sni\u017Euj\xED."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 528846575595520
+    m_Localized: "Mince se pou\u017E\xEDvaj\xED na n\xE1kup vylep\u0161en\xED. Velice
+      samovysv\u011Btluj\xEDc\xED."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 529713735364608
+    m_Localized: "Toto \u010D\xEDslo ur\u010Duje kolik po\u0161kozen\xED ud\u011Bl\xED\u0161
+      nep\u0159\xE1tel\u016Fm. "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 530215458009088
+    m_Localized: "Pokud ti nep\u0159\xEDtel ud\u011Bl\xED po\u0161kozen\xED, stane\u0161
+      se na chvilku nezraniteln\xFDm. Toto \u010D\xEDslo ur\u010Duje jak dlouho bude\u0161
+      nezraniteln\xFD."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 530852744753152
+    m_Localized: "Po ka\u017Ed\xE9 st\u0159ele mus\xED\u0161 chvilku \u010Dekat,ne\u017E
+      bude\u0161 zase moct st\u0159\xEDlet. Toto \u010D\xEDslo ur\u010Duje jak dlouho
+      mus\xED\u0161 \u010Dekat"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

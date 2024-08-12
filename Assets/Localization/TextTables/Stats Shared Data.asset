@@ -35,6 +35,26 @@ MonoBehaviour:
     m_Key: cooldown
     m_Metadata:
       m_Items: []
+  - m_Id: 526729408376832
+    m_Key: healthDesc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 528846575595520
+    m_Key: coinDesc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 529713735364608
+    m_Key: damageDesc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 530215458009088
+    m_Key: invincDesc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 530852744753152
+    m_Key: cooldownDesc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

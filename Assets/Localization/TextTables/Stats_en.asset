@@ -38,6 +38,28 @@ MonoBehaviour:
     m_Localized: Cooldown
     m_Metadata:
       m_Items: []
+  - m_Id: 526729408376832
+    m_Localized: When health reaches 0, you die. Enemy attacks will lower your health.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 528846575595520
+    m_Localized: You use these to buy upgrades. Pretty self explanatory.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 529713735364608
+    m_Localized: The number on this determines how much damage you deal to your enemies.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 530215458009088
+    m_Localized: When an enemy hits you, you get a grace period in which you are
+      invincible. This number refers to how long you are invincible for.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 530852744753152
+    m_Localized: After every shot, you enter a cooldown period where you can't shoot.
+      This number refers to how long you need to wait before shooting again.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
