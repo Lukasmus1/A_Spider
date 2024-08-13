@@ -1,11 +1,15 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
 public class StoreScript : MonoBehaviour
 {
     [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text description;
+
+    [SerializeField] private Image background;
+    [SerializeField] private TMP_Text backgroundText;
 
     public void DisplayTitle(string titleLocalizazionKey)
     {
@@ -21,5 +25,22 @@ public class StoreScript : MonoBehaviour
     {
         title.text = "";
         description.text = "";
-    } 
+    }
+
+    public void ChangeBackground(Sprite picture)
+    {
+        background.sprite = picture;
+    }
+
+    public void ChangeBackgroundText(TMP_Text text)
+    {
+        print(text.text);
+        backgroundText.text = text.text;
+    }
+    
+    public void ChangeBackgroundText(string text)
+    {
+        backgroundText.text = text;
+    }
+    
 }
