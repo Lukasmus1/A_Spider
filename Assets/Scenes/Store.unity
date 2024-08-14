@@ -689,7 +689,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1445520394}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
           m_MethodName: DisplayTitle
           m_Mode: 5
@@ -701,7 +701,7 @@ MonoBehaviour:
             m_StringArgument: invinc
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1445520394}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
           m_MethodName: DisplayDescription
           m_Mode: 5
@@ -808,7 +808,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622725004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1226,9 +1226,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1008827141}
+  - {fileID: 622725005}
   - {fileID: 204954340}
   - {fileID: 1684777868}
-  - {fileID: 622725005}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1502,7 +1502,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1445520394}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
           m_MethodName: DisplayTitle
           m_Mode: 5
@@ -1512,18 +1512,6 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: damage
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1445520394}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: DisplayDescription
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: damageDesc
             m_BoolArgument: 0
           m_CallState: 2
   - eventID: 1
@@ -1968,7 +1956,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1445520394}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
           m_MethodName: DisplayTitle
           m_Mode: 5
@@ -1980,7 +1968,7 @@ MonoBehaviour:
             m_StringArgument: cooldown
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1445520394}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
           m_MethodName: DisplayDescription
           m_Mode: 5
@@ -2571,22 +2559,6 @@ MonoBehaviour:
   damageText: {fileID: 711611882}
   invincibilityText: {fileID: 360320498}
   cooldownText: {fileID: 1630138839}
---- !u!114 &1445520394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445520392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75f0ba7e96be964469ee4d1a04b090ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: {fileID: 1326328012}
-  description: {fileID: 154346939}
-  background: {fileID: 1690226164}
-  backgroundText: {fileID: 1021889911}
 --- !u!1 &1484555287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3031,6 +3003,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1684777868}
   - component: {fileID: 1684777869}
+  - component: {fileID: 1684777870}
   m_Layer: 5
   m_Name: CoinCount
   m_TagString: Untagged
@@ -3078,10 +3051,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1445520394}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: DisplayTitle
-          m_Mode: 5
+        - m_Target: {fileID: 1684777870}
+          m_TargetAssemblyTypeName: StoreBase, Assembly-CSharp
+          m_MethodName: OnHover
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3090,46 +3063,27 @@ MonoBehaviour:
             m_StringArgument: coins
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1445520394}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: DisplayDescription
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: coinDesc
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1445520394}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: ChangeBackground
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 9530a4ce9409ffb4bb2675f10598c69c, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1445520394}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: ChangeBackgroundText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &1684777870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684777867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245542af5a307194a9f9a781ad04abba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleRef: {fileID: 1326328012}
+  descriptionRef: {fileID: 154346939}
+  backgroundRef: {fileID: 1690226164}
+  backgroundTextRef: {fileID: 1021889911}
+  pictureDer: {fileID: 21300000, guid: 9530a4ce9409ffb4bb2675f10598c69c, type: 3}
 --- !u!1 &1690226162
 GameObject:
   m_ObjectHideFlags: 0
@@ -3952,6 +3906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1964448222}
   - component: {fileID: 1964448223}
+  - component: {fileID: 1964448224}
   m_Layer: 5
   m_Name: HealthUpgrade
   m_TagString: Untagged
@@ -3999,10 +3954,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1445520394}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: DisplayTitle
-          m_Mode: 5
+        - m_Target: {fileID: 1964448224}
+          m_TargetAssemblyTypeName: StoreBase, Assembly-CSharp
+          m_MethodName: OnHover
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4011,46 +3966,28 @@ MonoBehaviour:
             m_StringArgument: health
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1445520394}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: DisplayDescription
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: healthDesc
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1445520394}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: ChangeBackgroundText
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 838426667}
-            m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1445520394}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: ChangeBackground
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 27e1a4e7435a76f43bbd910e0332b288, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &1964448224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964448221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67fdd46e8ef05a54ea9850f388e1880f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleRef: {fileID: 1326328012}
+  descriptionRef: {fileID: 154346939}
+  backgroundRef: {fileID: 1690226164}
+  backgroundTextRef: {fileID: 1021889911}
+  bgTextDer: {fileID: 838426667}
+  pictureDer: {fileID: 21300000, guid: 27e1a4e7435a76f43bbd910e0332b288, type: 3}
 --- !u!1001 &2019940696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4119,9 +4056,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8108576441666582659, guid: ef39dfe289634cd45a0a2c8d116a3d99, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1445520393}
-    - targetCorrespondingSourceObject: {fileID: 8108576441666582659, guid: ef39dfe289634cd45a0a2c8d116a3d99, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1445520394}
   m_SourcePrefab: {fileID: 100100000, guid: ef39dfe289634cd45a0a2c8d116a3d99, type: 3}
 --- !u!1 &2039529847
 GameObject:
