@@ -2,15 +2,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StoreHealthScript : StoreBase
+public class StoreCooldownScript : StoreBase
 {
     [SerializeField] private TMP_Text titleRef;
     [SerializeField] private TMP_Text descriptionRef;
     [SerializeField] private Image backgroundRef;
     [SerializeField] private TMP_Text backgroundTextRef;
-    
-    [SerializeField] private TMP_Text bgTextDer;
+
     [SerializeField] private Sprite pictureDer;
+    [SerializeField] private TMP_Text bgTextRef;
     [SerializeField] private Vector2 backgroundTextPos;
     
     private void Awake()
@@ -19,10 +19,10 @@ public class StoreHealthScript : StoreBase
         Description = descriptionRef;
         Background = backgroundRef;
         BackgroundText = backgroundTextRef;
-        BgTextTMP = bgTextDer;
+        BgTextTMP = bgTextRef;
         Picture = pictureDer;
-        TitleLocalizazionKey = "health";
-        DescriptionLocalizazionKey = "healthDesc";
+        TitleLocalizazionKey = "cooldown";
+        DescriptionLocalizazionKey = "cooldownDesc";
         BackgroundTextPos = backgroundTextPos;
     }
 }

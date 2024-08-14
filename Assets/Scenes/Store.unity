@@ -642,6 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 392033885}
   - component: {fileID: 392033886}
+  - component: {fileID: 392033887}
   m_Layer: 5
   m_Name: InvincibilityUpgrade
   m_TagString: Untagged
@@ -689,10 +690,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: DisplayTitle
-          m_Mode: 5
+        - m_Target: {fileID: 392033887}
+          m_TargetAssemblyTypeName: StoreBase, Assembly-CSharp
+          m_MethodName: OnHover
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -701,22 +702,29 @@ MonoBehaviour:
             m_StringArgument: invinc
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: DisplayDescription
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: invincDesc
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &392033887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392033884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4313b0f25097b5740ac1246333e35f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleRef: {fileID: 1326328012}
+  descriptionRef: {fileID: 154346939}
+  backgroundRef: {fileID: 1690226164}
+  backgroundTextRef: {fileID: 1021889911}
+  pictureDer: {fileID: 21300000, guid: 484a5b7462f2acb41b414fe25166024b, type: 3}
+  bgTextRef: {fileID: 360320498}
+  backgroundTextPos: {x: -1050, y: -130}
 --- !u!1 &516669161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,6 +1463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 927311681}
   - component: {fileID: 927311682}
+  - component: {fileID: 927311683}
   m_Layer: 5
   m_Name: DamageUpgrade
   m_TagString: Untagged
@@ -1502,10 +1511,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: DisplayTitle
-          m_Mode: 5
+        - m_Target: {fileID: 927311683}
+          m_TargetAssemblyTypeName: StoreBase, Assembly-CSharp
+          m_MethodName: OnHover
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1518,6 +1527,25 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &927311683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927311680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d22000f2e0890d244a1b1a65c61a9fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleRef: {fileID: 1326328012}
+  descriptionRef: {fileID: 154346939}
+  backgroundRef: {fileID: 1690226164}
+  backgroundTextRef: {fileID: 1021889911}
+  pictureDer: {fileID: 21300000, guid: dc2a8ca2cd7b7574e97459ceb4580e4e, type: 3}
+  bgTextRef: {fileID: 711611882}
+  backgroundTextPos: {x: -975, y: 120}
 --- !u!1 &1008827140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,8 +1649,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 130
-  m_fontSizeBase: 130
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1679,7 +1707,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021889910}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.99935997, y: 0.99935997, z: 0.99935997}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1687,8 +1715,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1087.4751, y: 18.32959}
-  m_SizeDelta: {x: 380.57, y: 100}
+  m_AnchoredPosition: {x: -900, y: -22}
+  m_SizeDelta: {x: 380, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1048152871
 GameObject:
@@ -1909,6 +1937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1173819243}
   - component: {fileID: 1173819244}
+  - component: {fileID: 1173819245}
   m_Layer: 5
   m_Name: CooldownUpgrade
   m_TagString: Untagged
@@ -1956,10 +1985,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: DisplayTitle
-          m_Mode: 5
+        - m_Target: {fileID: 1173819245}
+          m_TargetAssemblyTypeName: StoreBase, Assembly-CSharp
+          m_MethodName: OnHover
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1968,22 +1997,29 @@ MonoBehaviour:
             m_StringArgument: cooldown
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-          m_MethodName: DisplayDescription
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: cooldownDesc
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &1173819245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173819242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6a43517e017f0459763f547a32277f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleRef: {fileID: 1326328012}
+  descriptionRef: {fileID: 154346939}
+  backgroundRef: {fileID: 1690226164}
+  backgroundTextRef: {fileID: 1021889911}
+  pictureDer: {fileID: 21300000, guid: db1ccb77166257a4e9648f49d630f170, type: 3}
+  bgTextRef: {fileID: 1630138839}
+  backgroundTextPos: {x: -900, y: -22}
 --- !u!1 &1253342499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3988,6 +4024,7 @@ MonoBehaviour:
   backgroundTextRef: {fileID: 1021889911}
   bgTextDer: {fileID: 838426667}
   pictureDer: {fileID: 21300000, guid: 27e1a4e7435a76f43bbd910e0332b288, type: 3}
+  backgroundTextPos: {x: -1090, y: 20}
 --- !u!1001 &2019940696
 PrefabInstance:
   m_ObjectHideFlags: 0

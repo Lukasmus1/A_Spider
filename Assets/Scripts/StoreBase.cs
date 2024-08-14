@@ -16,6 +16,7 @@ public class StoreBase : MonoBehaviour
     protected Sprite Picture;
     protected string TitleLocalizazionKey;
     protected string DescriptionLocalizazionKey;
+    protected Vector2 BackgroundTextPos;
     
     private void DisplayTitle()
     {
@@ -49,6 +50,11 @@ public class StoreBase : MonoBehaviour
             BackgroundText.text = BgText;
         }
     }
+
+    private void ChangeBackgroundTextPos()
+    {
+        BackgroundText.rectTransform.anchoredPosition = BackgroundTextPos;
+    }
     
     public void OnHover()
     {
@@ -56,5 +62,6 @@ public class StoreBase : MonoBehaviour
         DisplayDescription();
         ChangeBackground();
         ChangeBackgroundText();
+        ChangeBackgroundTextPos();
     }
 }

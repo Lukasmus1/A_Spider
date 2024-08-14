@@ -47,7 +47,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 529713735364608
-    m_Localized: The number on this determines how much damage you deal to your enemies.
+    m_Localized: This number determines how much damage you deal to your enemies.
     m_Metadata:
       m_Items: []
   - m_Id: 530215458009088
