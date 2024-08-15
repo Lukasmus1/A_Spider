@@ -1,7 +1,7 @@
 using System;
 
 [Serializable]
-public class HealthClass
+public class HealthClass : IPlayerStats
 {
     private bool _infiniteHealth;
     
@@ -31,6 +31,9 @@ public class HealthClass
 
     public int MaxHealth { get; set; } = 100;
     
+    public int PriceToUpgrade { get; set; } = 50;
+    public float PriceMultiplier { get; } = 1.5f;
+
     public void SetVars(ref bool infiniteHealth)
     {
         _infiniteHealth = infiniteHealth;

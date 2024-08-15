@@ -83,7 +83,7 @@ public class UiScript : MonoBehaviour
     
     private void PointsUpdate()
     {
-        pointsText.text = PlayerStats.Instance.PointsInstance.Points.ToString();
+        pointsText.text = PlayerStats.Instance.CoinsInstance.Points.ToString();
     }
     
     public static void RaisePointsChange()

@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour
     public HealthClass HealthInstance { get; set; }
     public DamageClass DamageInstance { get; set; }
     public InvincibilityClass InvincibilityInstance { get; set; }
-    public PointsClass PointsInstance { get; set; }
+    public CoinsClass CoinsInstance { get; set; }
     public CooldownScript CooldownInstance { get; set; }
     
     private float _invincibilityTimer;

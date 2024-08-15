@@ -12,8 +12,9 @@ public class StoreCooldownScript : StoreBase
     [SerializeField] private Sprite pictureDer;
     [SerializeField] private TMP_Text bgTextRef;
     [SerializeField] private Vector2 backgroundTextPos;
+    [SerializeField] private TMP_Text priceText;
     
-    private void Awake()
+    private void Start()
     {
         Title = titleRef;
         Description = descriptionRef;
@@ -24,5 +25,9 @@ public class StoreCooldownScript : StoreBase
         TitleLocalizazionKey = "cooldown";
         DescriptionLocalizazionKey = "cooldownDesc";
         BackgroundTextPos = backgroundTextPos;
+        
+        PriceText = priceText;
+        Price = MainMenuManager.Save.CooldownInst;
+        UpdatePrice();
     }
 }

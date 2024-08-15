@@ -12,11 +12,14 @@ public class StoreBase : MonoBehaviour
     protected TMP_Text BackgroundText;
 
     protected TMP_Text BgTextTMP;
-    protected string BgText;
+    protected TMP_Text PriceText;
+    protected IPlayerStats Price;
     protected Sprite Picture;
+    protected Vector2 BackgroundTextPos;
+    protected string BgText;
     protected string TitleLocalizazionKey;
     protected string DescriptionLocalizazionKey;
-    protected Vector2 BackgroundTextPos;
+    
     
     private void DisplayTitle()
     {
@@ -26,12 +29,6 @@ public class StoreBase : MonoBehaviour
     private void DisplayDescription()
     {
         Description.text = LocalizationSettings.StringDatabase.GetLocalizedStringAsync(DescriptionLocalizazionKey).Result;
-    }
-    
-    public void HideTitleAndDescription()
-    {
-        Title.text = "";
-        Description.text = "";
     }
     
     private void ChangeBackground()
@@ -63,5 +60,12 @@ public class StoreBase : MonoBehaviour
         ChangeBackground();
         ChangeBackgroundText();
         ChangeBackgroundTextPos();
+    }
+
+    public void UpdatePrice()
+    {
+        PriceText.text = Price.PriceToUpgrade.ToString();
+        
+        PriceText.color = Price.PriceToUpgrade > MainMenuManager.Save.CoinsInst.Points ? Color.red : Color.green;
     }
 }

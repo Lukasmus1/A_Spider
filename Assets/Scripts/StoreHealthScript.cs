@@ -12,8 +12,9 @@ public class StoreHealthScript : StoreBase
     [SerializeField] private TMP_Text bgTextDer;
     [SerializeField] private Sprite pictureDer;
     [SerializeField] private Vector2 backgroundTextPos;
+    [SerializeField] private TMP_Text priceText;
     
-    private void Awake()
+    private void OnEnable()
     {
         Title = titleRef;
         Description = descriptionRef;
@@ -24,5 +25,9 @@ public class StoreHealthScript : StoreBase
         TitleLocalizazionKey = "health";
         DescriptionLocalizazionKey = "healthDesc";
         BackgroundTextPos = backgroundTextPos;
+        
+        PriceText = priceText;
+        Price = MainMenuManager.Save.HealthInst;
+        UpdatePrice();
     }
 }

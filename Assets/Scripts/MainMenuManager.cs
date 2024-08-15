@@ -13,20 +13,22 @@ public class MainMenuManager : LevelManager
 
     [SerializeField] private TMP_Text cooldownText;
 
-    private void Start()
+    public static PlayerStatsSave Save;
+    
+    private void Awake()
     {
         LoadStatsTexts();
     }
 
     private void LoadStatsTexts()
     {
-        PlayerStatsSave save = SavingSystem.LoadPlayerStats();
+        Save = SavingSystem.LoadPlayerStats();
 
-        healthText.text = save.HealthInst.MaxHealth.ToString();
-        pointsText.text = save.PointsInst.Points.ToString();
-        damageText.text = save.DamageInst.Damage.ToString();
-        invincibilityText.text = save.InvincibilityInst.InvincibilityTime.ToString("F2") + " s";
-        cooldownText.text = save.CooldownInst.ShotCooldown.ToString("F2") + " s";
+        healthText.text = Save.HealthInst.MaxHealth.ToString();
+        pointsText.text = Save.CoinsInst.Points.ToString();
+        damageText.text = Save.DamageInst.Damage.ToString();
+        invincibilityText.text = Save.InvincibilityInst.InvincibilityTime.ToString("F2") + " s";
+        cooldownText.text = Save.CooldownInst.ShotCooldown.ToString("F2") + " s";
     }
     
     public new void DeleteSave()

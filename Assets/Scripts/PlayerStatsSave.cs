@@ -5,7 +5,7 @@ using System;
 public class PlayerStatsSave
 {
     public HealthClass HealthInst { get; set; } = new HealthClass();
-    public PointsClass PointsInst { get; private set; } = new PointsClass();
+    public CoinsClass CoinsInst { get; private set; } = new CoinsClass();
     public DamageClass DamageInst { get; private set; } = new DamageClass();
     public InvincibilityClass InvincibilityInst { get; private set; } = new InvincibilityClass();
     public CooldownScript CooldownInst { get; private set; } = new CooldownScript();
@@ -13,7 +13,7 @@ public class PlayerStatsSave
     public void SetVars(PlayerStats playerStats)
     {
         HealthInst = playerStats.HealthInstance;
-        PointsInst = playerStats.PointsInstance;
+        CoinsInst = playerStats.CoinsInstance;
         DamageInst = playerStats.DamageInstance;
         InvincibilityInst = playerStats.InvincibilityInstance;
         CooldownInst = playerStats.CooldownInstance;
@@ -22,7 +22,7 @@ public class PlayerStatsSave
     public void LoadVarsToPlayer(PlayerStats playerStats)
     {
         playerStats.HealthInstance = HealthInst;
-        playerStats.PointsInstance = PointsInst;
+        playerStats.CoinsInstance = CoinsInst;
         playerStats.DamageInstance = DamageInst;
         playerStats.InvincibilityInstance = InvincibilityInst;
         playerStats.CooldownInstance = CooldownInst;

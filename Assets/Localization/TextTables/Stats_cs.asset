@@ -65,6 +65,10 @@ MonoBehaviour:
       mus\xED\u0161 \u010Dekat"
     m_Metadata:
       m_Items: []
+  - m_Id: 1634936595902464
+    m_Localized: Koupit
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

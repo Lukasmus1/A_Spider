@@ -60,6 +60,10 @@ MonoBehaviour:
       This number refers to how long you need to wait before shooting again.
     m_Metadata:
       m_Items: []
+  - m_Id: 1634936595902464
+    m_Localized: Buy
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
