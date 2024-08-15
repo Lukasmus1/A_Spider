@@ -38,7 +38,7 @@ public class PlayerShooting : MonoBehaviour
         //This is here for a cooldown between shots
         if (!_canShoot)
         {
-            if (PlayerStats.Instance.CooldownInstance.ShotCooldown > _lastShotTime)
+            if (PlayerStats.Instance.CooldownInstance.Value > _lastShotTime)
             {
                 _lastShotTime += Time.deltaTime;
                 UiScript.RaiseCooldownChange(_lastShotTime);

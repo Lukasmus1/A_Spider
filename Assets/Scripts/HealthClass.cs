@@ -1,10 +1,19 @@
 using System;
 
 [Serializable]
-public class HealthClass : IPlayerStats
+public class HealthClass : PlayerStatsBase
 {
+    //Derived from PlayerStatsBase
+    public override float Value { get; set; } = 100;
+    public override float ValueMultiplier { get; set; } = 2;
+
+    public override int PriceToUpgrade { get; set; } = 50;
+    public override float PriceMultiplier { get; } = 1.5f;
+    
+    //Debug UnityEditor only property
     private bool _infiniteHealth;
     
+    //Health property
     private int _health;
     public int Health
     {
@@ -29,14 +38,9 @@ public class HealthClass : IPlayerStats
 
     }
 
-    public int MaxHealth { get; set; } = 100;
-    
-    public int PriceToUpgrade { get; set; } = 50;
-    public float PriceMultiplier { get; } = 1.5f;
-
     public void SetVars(ref bool infiniteHealth)
     {
         _infiniteHealth = infiniteHealth;
-        Health = MaxHealth;
+        Health = (int)Value;
     }
 }

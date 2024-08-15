@@ -47,7 +47,7 @@ public class UiScript : MonoBehaviour
         UpdateHealth();
         PointsUpdate();
         
-        cooldownSlider.maxValue = PlayerStats.Instance.CooldownInstance.ShotCooldown;
+        cooldownSlider.maxValue = PlayerStats.Instance.CooldownInstance.Value;
     }
     
     private void OnDestroy()
@@ -111,7 +111,7 @@ public class UiScript : MonoBehaviour
             }
             
             cooldownSlider.value = cooldown;
-            cooldownText.text = (PlayerStats.Instance.CooldownInstance.ShotCooldown - cooldown).ToString("F1");
+            cooldownText.text = (PlayerStats.Instance.CooldownInstance.Value - cooldown).ToString("F1");
         }
     }
     

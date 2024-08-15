@@ -42,7 +42,7 @@ public class PlayerStats : MonoBehaviour
             return;
         
         _invincibilityTimer += Time.deltaTime;
-        if (_invincibilityTimer >= InvincibilityInstance.InvincibilityTime)
+        if (_invincibilityTimer >= InvincibilityInstance.Value)
         {
             InvincibilityInstance.IsInvincible = false;
             _invincibilityTimer = 0;

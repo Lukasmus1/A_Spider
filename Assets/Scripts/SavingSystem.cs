@@ -20,6 +20,19 @@ public class SavingSystem : MonoBehaviour
         fs.Close();
     }
     
+    public static void SavePlayerStats(PlayerStatsSave saveRef)
+    {
+        PlayerStatsSave save = new PlayerStatsSave();
+        save.SetVars(saveRef);
+        
+        BinaryFormatter bf = new BinaryFormatter();
+        string path = Application.persistentDataPath + PlayerStatsFileName;
+        FileStream fs = new FileStream(path, FileMode.Create);
+        
+        bf.Serialize(fs, save);
+        fs.Close();
+    }
+    
     public static PlayerStatsSave LoadPlayerStats()
     {
         string path = Application.persistentDataPath + PlayerStatsFileName;

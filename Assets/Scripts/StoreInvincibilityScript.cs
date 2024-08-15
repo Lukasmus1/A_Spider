@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ public class StoreInvincibilityScript : StoreBase
     [SerializeField] private TMP_Text bgTextRef;
     [SerializeField] private Vector2 backgroundTextPos;
     [SerializeField] private TMP_Text priceText;
+    [SerializeField] private Button buyButton;
+
     
     private void Start()
     {
@@ -27,7 +30,15 @@ public class StoreInvincibilityScript : StoreBase
         BackgroundTextPos = backgroundTextPos;
         
         PriceText = priceText;
-        Price = MainMenuManager.Save.InvincibilityInst;
+        BuyButton = buyButton;
+        StatsBase = MainMenuManager.Save.InvincibilityInst;
         UpdatePrice();
+        
+        StoreManager.OnBuyItemEvent += UpdatePrice;
+    }
+
+    private void OnDisable()
+    {
+        StoreManager.OnBuyItemEvent -= UpdatePrice;
     }
 }

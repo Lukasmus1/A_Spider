@@ -31,7 +31,6 @@ public class GameManager : LevelManager
     public override void LoadScene(SceneAsset sc)
     {
         SceneManager.LoadScene(sc.name);
-        SavingSystem.SavePlayerStats();
     }
     
     private void Update()

@@ -13,6 +13,8 @@ public class StoreDamageScript : StoreBase
     [SerializeField] private TMP_Text bgTextRef;
     [SerializeField] private Vector2 backgroundTextPos;
     [SerializeField] private TMP_Text priceText;
+    [SerializeField] private Button buyButton;
+
     
     private void Start()
     {
@@ -27,7 +29,15 @@ public class StoreDamageScript : StoreBase
         BackgroundTextPos = backgroundTextPos;
         
         PriceText = priceText;
-        Price = MainMenuManager.Save.DamageInst;
+        BuyButton = buyButton;
+        StatsBase = MainMenuManager.Save.DamageInst;
         UpdatePrice();
+        
+        StoreManager.OnBuyItemEvent += UpdatePrice;
+    }
+    
+    private void OnDisable()
+    {
+        StoreManager.OnBuyItemEvent -= UpdatePrice;
     }
 }

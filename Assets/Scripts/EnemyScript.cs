@@ -48,7 +48,7 @@ public class EnemyScript : MonoBehaviour
     
     private void EnemyShot()
     {
-        enemyStats.EnemyHealth -= PlayerStats.Instance.DamageInstance.Damage;
+        enemyStats.EnemyHealth -= (int)PlayerStats.Instance.DamageInstance.Value;
         if (isDead)
         {
             GetComponentInChildren<SpriteRenderer>().sprite = downedFlySprite;

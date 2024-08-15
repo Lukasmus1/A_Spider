@@ -18,6 +18,15 @@ public class PlayerStatsSave
         InvincibilityInst = playerStats.InvincibilityInstance;
         CooldownInst = playerStats.CooldownInstance;
     }
+
+    public void SetVars(PlayerStatsSave playerStats)
+    {
+        HealthInst = playerStats.HealthInst;
+        CoinsInst = playerStats.CoinsInst;
+        DamageInst = playerStats.DamageInst;
+        InvincibilityInst = playerStats.InvincibilityInst;
+        CooldownInst = playerStats.CooldownInst;
+    }
     
     public void LoadVarsToPlayer(PlayerStats playerStats)
     {

@@ -13,7 +13,8 @@ public class StoreBase : MonoBehaviour
 
     protected TMP_Text BgTextTMP;
     protected TMP_Text PriceText;
-    protected IPlayerStats Price;
+    protected Button BuyButton;
+    protected PlayerStatsBase StatsBase;
     protected Sprite Picture;
     protected Vector2 BackgroundTextPos;
     protected string BgText;
@@ -62,10 +63,24 @@ public class StoreBase : MonoBehaviour
         ChangeBackgroundTextPos();
     }
 
-    public void UpdatePrice()
+    protected void UpdatePrice()
     {
-        PriceText.text = Price.PriceToUpgrade.ToString();
+        PriceText.text = StatsBase.PriceToUpgrade.ToString();
         
-        PriceText.color = Price.PriceToUpgrade > MainMenuManager.Save.CoinsInst.Points ? Color.red : Color.green;
+        PriceText.color = StatsBase.PriceToUpgrade > MainMenuManager.Save.CoinsInst.Points ? Color.red : Color.green;
+        BuyButton.interactable = StatsBase.PriceToUpgrade <= MainMenuManager.Save.CoinsInst.Points;
+    }
+
+    public void Buy()
+    {
+        //Price check, this shouldn't really be true since the button should be disabled if the price is too high, but just in case
+        if (StatsBase.PriceToUpgrade > MainMenuManager.Save.CoinsInst.Points)
+        {
+            return;
+        }
+        
+        MainMenuManager.Save.CoinsInst.Points -= StatsBase.PriceToUpgrade;
+        StatsBase.Upgrade();
+        StoreManager.InvokeOnBuyItemEvent();
     }
 }

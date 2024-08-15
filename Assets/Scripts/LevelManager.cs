@@ -19,7 +19,12 @@ public class LevelManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void DeleteSave()
+    public virtual void SaveGame()
+    {
+        SavingSystem.SavePlayerStats();
+    }
+    
+    public virtual void DeleteSave()
     {
         SavingSystem.DeletePlayerStats();
     }

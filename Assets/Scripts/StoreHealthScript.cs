@@ -13,6 +13,8 @@ public class StoreHealthScript : StoreBase
     [SerializeField] private Sprite pictureDer;
     [SerializeField] private Vector2 backgroundTextPos;
     [SerializeField] private TMP_Text priceText;
+    [SerializeField] private Button buyButton;
+
     
     private void OnEnable()
     {
@@ -27,7 +29,15 @@ public class StoreHealthScript : StoreBase
         BackgroundTextPos = backgroundTextPos;
         
         PriceText = priceText;
-        Price = MainMenuManager.Save.HealthInst;
+        BuyButton = buyButton;
+        StatsBase = MainMenuManager.Save.HealthInst;
         UpdatePrice();
+        
+        StoreManager.OnBuyItemEvent += UpdatePrice;
+    }
+    
+    private void OnDisable()
+    {
+        StoreManager.OnBuyItemEvent -= UpdatePrice;
     }
 }
