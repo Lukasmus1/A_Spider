@@ -1,3 +1,4 @@
+using UnityEngine;
 
 public class StoreManager : MainMenuManager
 {
@@ -7,6 +8,7 @@ public class StoreManager : MainMenuManager
     private void Start()
     {
         OnBuyItemEvent += UpdateStatsText;
+
     }
 
     private void OnDisable()

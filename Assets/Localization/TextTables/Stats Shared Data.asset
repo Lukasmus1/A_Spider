@@ -59,6 +59,14 @@ MonoBehaviour:
     m_Key: buy
     m_Metadata:
       m_Items: []
+  - m_Id: 2141781500588032
+    m_Key: difficulty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2144406166007808
+    m_Key: difficultyDesc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

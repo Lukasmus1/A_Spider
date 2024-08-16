@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class BasicEnemyStats : MonoBehaviour, IEnemyStats
@@ -21,7 +20,7 @@ public class BasicEnemyStats : MonoBehaviour, IEnemyStats
 
     public int EnemyPoints { get; set; } = 5;
     public int EnemyDamage { get; set; } = 5;
-    public int DifficultyMultiplier { get; set; } = 1;
+    public int DifficultyMultiplier { get; } = 1;
 
     public void OnDestroy()
     {

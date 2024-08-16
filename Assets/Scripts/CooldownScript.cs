@@ -10,13 +10,10 @@ public class CooldownScript : PlayerStatsBase
         get => _value;
         set
         {
+            _value = value;
             if (_value <= 0)
             {
                 _value = 0;
-            }
-            else
-            {
-                _value = value;
             }
         }
     }
@@ -25,11 +22,16 @@ public class CooldownScript : PlayerStatsBase
     public override float PriceMultiplier { get; } = 1.4f;
     protected override int BuyCountMultiplier { get; set; } = 5;
 
-    public override void Upgrade()
+    public override int Upgrade()
     {
         Value -= ValueMultiplier * BuyCountMultiplier;
         
         PriceToUpgrade = (int)(PriceToUpgrade + BuyCountMultiplier * PriceMultiplier);
         BuyCountMultiplier += 10;
+        if (Value <= 0)
+        {
+            return 1;
+        }
+        return 0;
     }
 }

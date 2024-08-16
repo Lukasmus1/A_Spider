@@ -1,11 +1,18 @@
+using System;
 using UnityEngine;
 
 public class DifficultyManager : MonoBehaviour
 {
     [SerializeField] private float timeToIncreaseDifficulty = 1f;
     private float _timeSinceLastIncrease;
-    
-    public static float TimeMultiplier { get; private set; } = 1f;
+
+    public static float TimeMultiplier { get; private set; }
+    public static DifficultyClass DefaultDifficultyModifier { get; set; }
+
+    private void Start()
+    {
+        TimeMultiplier = DefaultDifficultyModifier.Value;
+    }
 
     private void Update()
     {

@@ -9,11 +9,12 @@ public abstract class PlayerStatsBase
     public abstract float Value { get; set; }
     public abstract float ValueMultiplier { get; set; }
 
-    public virtual void Upgrade()
+    public virtual int Upgrade()
     {
         Value += ValueMultiplier * BuyCountMultiplier;
         
         PriceToUpgrade = (int)(PriceToUpgrade + BuyCountMultiplier * PriceMultiplier);
         BuyCountMultiplier += 10;
+        return 0;
     }
 }

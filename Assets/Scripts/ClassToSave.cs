@@ -2,13 +2,16 @@ using System;
 
 //This class is here because Unity's serialization doesn't work on classes that derive from MonoBehaviour
 [Serializable]
-public class PlayerStatsSave
+public class ClassToSave
 {
     public HealthClass HealthInst { get; set; } = new HealthClass();
     public CoinsClass CoinsInst { get; private set; } = new CoinsClass();
     public DamageClass DamageInst { get; private set; } = new DamageClass();
     public InvincibilityClass InvincibilityInst { get; private set; } = new InvincibilityClass();
     public CooldownScript CooldownInst { get; private set; } = new CooldownScript();
+    
+    //This is a multiplier that is used to increase the difficulty of the game
+    public DifficultyClass DifficultyInst { get; set; } = new DifficultyClass();
 
     public void SetVars(PlayerStats playerStats)
     {
@@ -17,15 +20,17 @@ public class PlayerStatsSave
         DamageInst = playerStats.DamageInstance;
         InvincibilityInst = playerStats.InvincibilityInstance;
         CooldownInst = playerStats.CooldownInstance;
+        DifficultyInst = DifficultyManager.DefaultDifficultyModifier;
     }
 
-    public void SetVars(PlayerStatsSave playerStats)
+    public void SetVars(ClassToSave classTo)
     {
-        HealthInst = playerStats.HealthInst;
-        CoinsInst = playerStats.CoinsInst;
-        DamageInst = playerStats.DamageInst;
-        InvincibilityInst = playerStats.InvincibilityInst;
-        CooldownInst = playerStats.CooldownInst;
+        HealthInst = classTo.HealthInst;
+        CoinsInst = classTo.CoinsInst;
+        DamageInst = classTo.DamageInst;
+        InvincibilityInst = classTo.InvincibilityInst;
+        CooldownInst = classTo.CooldownInst;
+        DifficultyInst = classTo.DifficultyInst;
     }
     
     public void LoadVarsToPlayer(PlayerStats playerStats)
@@ -35,5 +40,6 @@ public class PlayerStatsSave
         playerStats.DamageInstance = DamageInst;
         playerStats.InvincibilityInstance = InvincibilityInst;
         playerStats.CooldownInstance = CooldownInst;
+        DifficultyManager.DefaultDifficultyModifier = DifficultyInst;
     }
 }

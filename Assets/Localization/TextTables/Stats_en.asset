@@ -64,6 +64,15 @@ MonoBehaviour:
     m_Localized: Buy
     m_Metadata:
       m_Items: []
+  - m_Id: 2141781500588032
+    m_Localized: Difficulty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2144406166007808
+    m_Localized: Multiplies the stats of enemies at the beggining (Health, Damage,
+      Coins).
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

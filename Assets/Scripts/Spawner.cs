@@ -42,6 +42,7 @@ public class Spawner : MonoBehaviour
             MoveFromPlayer(ref randomPosition.y);
         }
         
+        //Check if the spawn point is out of bounds
         randomPosition = CheckDistanceFromMax(randomPosition, minX, maxX, minY, maxY);
         
         GameObject enemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);

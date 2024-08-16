@@ -69,6 +69,15 @@ MonoBehaviour:
     m_Localized: Koupit
     m_Metadata:
       m_Items: []
+  - m_Id: 2141781500588032
+    m_Localized: "Obt\xED\u017Enost"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2144406166007808
+    m_Localized: "Zn\xE1sob\xED za\u010D\xE1te\u010Dn\xED statistiky nep\u0159\xE1tel
+      (\u017Divoty, Po\u0161kozen\xED, Mince)."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

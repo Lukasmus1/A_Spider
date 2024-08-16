@@ -21,6 +21,7 @@ public class StoreBase : MonoBehaviour
     protected string TitleLocalizazionKey;
     protected string DescriptionLocalizazionKey;
     
+    private int _maxedOut = 0;
     
     private void DisplayTitle()
     {
@@ -65,6 +66,13 @@ public class StoreBase : MonoBehaviour
 
     protected void UpdatePrice()
     {
+        if (_maxedOut == 1)
+        {
+            PriceText.text = "MAX";
+            BuyButton.interactable = false;
+            return;
+        }
+        
         PriceText.text = StatsBase.PriceToUpgrade.ToString();
         
         PriceText.color = StatsBase.PriceToUpgrade > MainMenuManager.Save.CoinsInst.Points ? Color.red : Color.green;
@@ -80,7 +88,7 @@ public class StoreBase : MonoBehaviour
         }
         
         MainMenuManager.Save.CoinsInst.Points -= StatsBase.PriceToUpgrade;
-        StatsBase.Upgrade();
+        _maxedOut = StatsBase.Upgrade();
         StoreManager.InvokeOnBuyItemEvent();
     }
 }

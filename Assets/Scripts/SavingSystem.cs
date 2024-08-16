@@ -9,7 +9,7 @@ public class SavingSystem : MonoBehaviour
     
     public static void SavePlayerStats()
     {
-        PlayerStatsSave save = new PlayerStatsSave();
+        ClassToSave save = new ClassToSave();
         save.SetVars(PlayerStats.Instance);
         
         BinaryFormatter bf = new BinaryFormatter();
@@ -20,9 +20,9 @@ public class SavingSystem : MonoBehaviour
         fs.Close();
     }
     
-    public static void SavePlayerStats(PlayerStatsSave saveRef)
+    public static void SavePlayerStats(ClassToSave saveRef)
     {
-        PlayerStatsSave save = new PlayerStatsSave();
+        ClassToSave save = new ClassToSave();
         save.SetVars(saveRef);
         
         BinaryFormatter bf = new BinaryFormatter();
@@ -33,10 +33,10 @@ public class SavingSystem : MonoBehaviour
         fs.Close();
     }
     
-    public static PlayerStatsSave LoadPlayerStats()
+    public static ClassToSave LoadPlayerStats()
     {
         string path = Application.persistentDataPath + PlayerStatsFileName;
-        PlayerStatsSave save;
+        ClassToSave save;
         if (File.Exists(path))
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -44,7 +44,7 @@ public class SavingSystem : MonoBehaviour
             
             try
             {
-                save = bf.Deserialize(fs) as PlayerStatsSave;
+                save = bf.Deserialize(fs) as ClassToSave;
             }
             catch (Exception e)
             {
@@ -57,7 +57,7 @@ public class SavingSystem : MonoBehaviour
         }
         else
         {
-            save = new PlayerStatsSave();
+            save = new ClassToSave();
             return save;
         }
     }
