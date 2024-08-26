@@ -2238,10 +2238,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1795325233}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 102900000, guid: 6c7ff72c28d63d2488ab8781003a919a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Game
@@ -2387,10 +2387,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1795325233}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 102900000, guid: f44cb99bb8cdd2547bcab43415d50e5c, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Store
@@ -3282,6 +3282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f30480416dca4f4683c9c1cc224d6f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugCoins: 0
   healthText: {fileID: 1099865991}
   pointsText: {fileID: 235188651}
   damageText: {fileID: 1219806595}

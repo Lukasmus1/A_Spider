@@ -28,10 +28,7 @@ public class GameManager : LevelManager
         PlayerStats.Instance.OnDeath += TimescaleZero;
     }
 
-    public override void LoadScene(SceneAsset sc)
-    {
-        SceneManager.LoadScene(sc.name);
-    }
+
     
     private void Update()
     {
