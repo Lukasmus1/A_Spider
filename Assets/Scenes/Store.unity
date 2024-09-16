@@ -4657,7 +4657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5941098730cc87b4d979458eb2d9903e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugCoins: 16
+  debugCoins: 0
   healthText: {fileID: 838426667}
   pointsText: {fileID: 1132704737}
   damageText: {fileID: 711611882}

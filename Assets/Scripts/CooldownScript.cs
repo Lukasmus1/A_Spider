@@ -28,10 +28,6 @@ public class CooldownScript : PlayerStatsBase
         
         PriceToUpgrade = (int)(PriceToUpgrade + BuyCountMultiplier * PriceMultiplier);
         BuyCountMultiplier += 10;
-        if (Value <= 0)
-        {
-            return 1;
-        }
-        return 0;
+        return Value <= 0 ? 1 : 0;
     }
 }
