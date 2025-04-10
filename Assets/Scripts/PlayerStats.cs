@@ -28,7 +28,16 @@ public class PlayerStats : MonoBehaviour
         Instance = this;
         
         SavingSystem.LoadPlayerStats().LoadVarsToPlayer(Instance);
+
+#if UNITY_EDITOR
         HealthInstance.SetVars(ref infiniteHealth);
+        return;
+#endif
+        
+#pragma warning disable CS0162 // Unreachable code detected
+        HealthInstance.SetVars();
+#pragma warning restore CS0162 // Unreachable code detected
+
     }
 
     private void OnDisable()

@@ -43,4 +43,9 @@ public class HealthClass : PlayerStatsBase
         _infiniteHealth = infiniteHealth;
         Health = (int)Value;
     }
+
+    public void SetVars()
+    {
+        Health = (int)Value;
+    }
 }
